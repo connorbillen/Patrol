@@ -1,0 +1,25 @@
+{
+  "name": "patrol",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "leaflet": "^1.7.1",
+    "next": "10.0.3",
+    "next-images": "^1.6.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-leaflet": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.5.19",
+    "@types/node": "^14.14.10",
+    "typescript": "^4.1.2"
+  }
+}
