@@ -1,20 +1,14 @@
 import React, {} from 'react'
 import Draggable from 'react-draggable'
 
+import styles from '../../styles/Tardis.module.css'
+
 const Tardis = (): JSX.Element => {
 
     return (
         <Draggable>
             <div
-                style={{
-                    position: 'absolute',
-                    zIndex: 10000,
-                    bottom: 40,
-                    left: 40,
-                    height: '75px',
-                    width: '400px',
-                    backgroundColor: '#ccc'
-                }}
+                className={styles.container}
             >
                 Tardis
             </div>
