@@ -17,9 +17,9 @@ const MapWrapper = (): JSX.Element => {
 
     return (
         <div style={{ height: '100%' }}>
-            <MapContainer center={position} zoom={13} style={{ height: '100%' }}>
+            <MapContainer center={position} zoom={13} zoomControl={false} style={{ height: '100%' }}>
                 <TileLayer
-                    url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+                    url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
                 <Marker position={position}>
