@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css'
 import icon from 'leaflet/dist/images/marker-icon.png'
 import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 
-const DefaultIcon = L.icon({
+const DefaultIcon: L.Icon<L.IconOptions> = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow
 })
