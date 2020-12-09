@@ -19,3 +19,13 @@ div#__next {
 * {
   box-sizing: border-box;
 }
+
+.leaflet-control-container { 
+  position: absolute; 
+  right: 56px;
+  bottom: 86px;
+} 
+
+.leaflet-control-attribution {
+  display: none;
+}

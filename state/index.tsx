@@ -1,10 +1,6 @@
 import { createStore, Store } from 'redux'
 
-export interface State {
-    ToolDrawer: {
-        open: boolean
-    }
-}
+import { State } from '../interfaces'
 
 export enum actions {
     'TOGGLE_TOOLDRAWER' = 'TOGGLE_TOOLDRAWER'
@@ -15,6 +11,30 @@ class StateManager {
     private initState: State = {
         ToolDrawer: {
             open: false
+        },
+        Layers: {
+            static: {
+                label: 'Static',
+                expanded: false,
+                layers: [
+                    {
+                        active: false,
+                        label: 'Test',
+                        color: '#CCCCCC'
+                    }
+                ]
+            },
+            historical: {
+                label: 'Historical',
+                expanded: false,
+                layers: [
+                    {
+                        active: false,
+                        label: 'Test',
+                        color: '#CCCCCC'
+                    }
+                ]
+            }
         }
     }
 
