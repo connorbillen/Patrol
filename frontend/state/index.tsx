@@ -42,7 +42,7 @@ class StateManager {
         this.store = createStore(this._rootReducer)
     }
 
-    private _rootReducer = (state: State = this.initState, action: {type: string}): Object => {
+    private _rootReducer = (state: State = this.initState, action: {type: string}): State => {
         switch(action.type) {
             case actions.TOGGLE_TOOLDRAWER:
                 return { ...state, ToolDrawer: {open: !state.ToolDrawer.open}}
