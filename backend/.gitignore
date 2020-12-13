@@ -32,3 +32,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# custom
+./DB.db
+./DB.db-journal

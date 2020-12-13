@@ -5,17 +5,19 @@
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
     "start": "ts-node src/index.ts",
-    "initDB": "shx rm -f ./DB.db && ts-node ./src/data/initDB.ts"
+    "initDB": "shx rm -f ./DB.db && ts-node ./src/api/initDB.ts"
   },
   "dependencies": {
     "apollo-server": "^2.19.0",
     "graphql": "^15.4.0",
     "sequelize": "^6.3.5",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@types/node": "^14.14.10",
     "@types/sqlite3": "^3.1.6",
+    "@types/xml2js": "^0.4.7",
     "shx": "^0.3.3",
     "ts-node": "^9.1.1",
     "ts-node-dev": "^1.0.0",

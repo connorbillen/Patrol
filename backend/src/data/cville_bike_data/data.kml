@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Bicycle_Rack_Points" id="Bicycle_Rack_Points">
+	<SimpleField name="OBJECTID" type="int"></SimpleField>
+	<SimpleField name="TYPE" type="string"></SimpleField>
+	<SimpleField name="NOTES" type="string"></SimpleField>
+</Schema>
+<Folder><name>Bicycle_Rack_Points</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">1</SimpleData>
+		<SimpleData name="TYPE">1 Staples</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4786164046511,38.0298136917297</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">2</SimpleData>
+		<SimpleData name="TYPE">3 Staples</SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.478207959317,38.0300556605614</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">3</SimpleData>
+		<SimpleData name="TYPE">3 Staple </SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4837211830659,38.0307861510599</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">4</SimpleData>
+		<SimpleData name="TYPE">3 Staples</SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4800493583424,38.0301044451826</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">5</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4772420086308,38.0295723463486</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">6</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4978858983416,38.0323502818181</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">7</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5033400972472,38.0510297255532</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">8</SimpleData>
+		<SimpleData name="TYPE">Comb Rack (24)</SimpleData>
+		<SimpleData name="NOTES">8 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4887371566513,38.0309502754523</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">9</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4917444789365,38.031587856074</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">10</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5009303217025,38.0354315566393</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">11</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4983725402309,38.0335256275183</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">12</SimpleData>
+		<SimpleData name="TYPE">Paperclip</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4962923499818,38.0328155233641</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">13</SimpleData>
+		<SimpleData name="TYPE">Paperclip</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4913871855803,38.031912951232</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">14</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4744919582227,38.0289438092774</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">15</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4899609280233,38.038634644272</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">16</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4717894307433,38.0320054757332</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">17</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5023574495957,38.0486533855025</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">18</SimpleData>
+		<SimpleData name="TYPE">Comb Rack (4 Lines)</SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4805534471114,38.0295458000219</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">19</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4963728835699,38.0301840983803</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">20</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5049707227049,38.0363734526606</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">21</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5059448958373,38.0349048273685</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">22</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5056563067097,38.0343300239447</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">23</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5082263791962,38.0332472687373</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">24</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5078305505935,38.0328056031011</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">25</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5066286044728,38.0329155154756</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">26</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5065131319173,38.033292161621</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">27</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5060082457109,38.0330377173613</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">28</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5046860350245,38.0326576219296</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">29</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.50452142781,38.032464585249</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">30</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5032372889766,38.0329788683513</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.501960686874,38.0342785997421</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">32</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5012108411214,38.0341814292232</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">33</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5012417086894,38.0358272723416</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">34</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5035957117158,38.0314971771197</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">35</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5021424047231,38.0319537054443</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">36</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5020765508342,38.0308691502977</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">37</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5012231799816,38.0307968327086</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">38</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5007610029903,38.0313015221748</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">39</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4992464538781,38.0305381642745</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">40</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4982453746988,38.031789556566</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">41</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5048061245034,38.0321456823775</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">42</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5053989016633,38.0328352298228</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">43</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.509708675937,38.0339556497152</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">44</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.510795147158,38.0342223839858</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">45</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.50938639407,38.035384000601</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">46</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5106384481061,38.0358167178624</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">47</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5118932812538,38.0361682503172</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">48</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5121831172989,38.0346850590358</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">49</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5117087715402,38.0345395966675</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">50</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5114219365168,38.0339107109731</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">51</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5103391327044,38.0335357626708</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">52</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5105239139764,38.0331334866919</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">53</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5108751839249,38.0328701423458</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">54</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5110248305655,38.0324942301839</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">55</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5132463929634,38.0346263189306</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">56</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5125362196757,38.0343675863588</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">57</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5141251084959,38.0329389459235</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">58</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5146043746348,38.0339510045671</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">59</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5148109331092,38.0349302256004</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">60</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5148930658935,38.0345257589702</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">61</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5156328921816,38.0349205098084</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">62</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.517274611437,38.0339533115354</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">63</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5164001493397,38.0345034836459</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">64</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5171624423239,38.0332198193851</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">65</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5163591771057,38.0336902375982</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">66</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5156584944173,38.0341628611556</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">67</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.514848078638,38.0328188584522</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">68</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5151177236043,38.0319309638771</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">69</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5156601383046,38.0310759024233</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">70</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5163005748152,38.030358316673</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">71</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5169104242006,38.0295317706616</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">72</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5178190542253,38.0289823026446</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">73</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5191791488562,38.0292547414181</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">74</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5190897059064,38.0298756795156</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">75</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5191695190555,38.03055433853</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">76</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5198007893455,38.0301073253553</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">77</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5199266885909,38.0304349286434</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">78</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.507026631441,38.0383396936434</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">79</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5066964456921,38.0379806478483</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">80</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5089432502282,38.0444188905641</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">81</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5097271416423,38.0435148260473</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">82</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5074747711834,38.0443065163552</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">83</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5092595207496,38.0512494202073</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">84</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.508689506147,38.0498833976613</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">85</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.509704002503,38.0532897495047</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">86</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5080364453348,38.0529835881748</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">87</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5035815586875,38.0389705715774</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">88</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4989051709277,38.0342705925893</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">89</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4841956422964,38.0533439351744</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">90</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4829151136748,38.0522899660597</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">91</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4912700773964,38.0402250277517</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">92</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4758565707514,38.0529779030828</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">93</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4967376657836,38.0385210360028</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">94</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4864597493151,38.0395305047895</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">95</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5067178313917,38.0225296393263</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">96</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5041459709576,38.0145489644706</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">97</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4624300947873,38.0354637478875</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">98</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4707888697536,38.0634538539208</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">99</SimpleData>
+		<SimpleData name="TYPE">3 Staples</SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4801458929775,38.0301373321718</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">100</SimpleData>
+		<SimpleData name="TYPE">Art In Place</SimpleData>
+		<SimpleData name="NOTES">8 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4802754499107,38.031408809255</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">101</SimpleData>
+		<SimpleData name="TYPE">6 Staples</SimpleData>
+		<SimpleData name="NOTES">12 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4771300402739,38.0289843907865</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">102</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4986727407112,38.0396728205574</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">103</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5085937882476,38.0416149428491</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">104</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5142649242297,38.0184443535241</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">105</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4659188523522,38.027916735348</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">106</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4965542730571,38.0249861015523</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">107</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.486609616944,38.0330671863293</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">108</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4828046343709,38.0353134932508</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">109</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4840045868739,38.0349676657763</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">110</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5009145779109,38.0500943814227</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">111</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4739318931448,38.0306229722337</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">112</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4871313618016,38.0628393322686</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">113</SimpleData>
+		<SimpleData name="TYPE">Wave Rack</SimpleData>
+		<SimpleData name="NOTES">7</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4758035744108,38.0296996360328</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">114</SimpleData>
+		<SimpleData name="TYPE">Wave Rack</SimpleData>
+		<SimpleData name="NOTES">5 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.487016041285,38.0305593186797</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">115</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4744805811462,38.022820098459</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">116</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4975269366421,38.032932369673</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">117</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4976828255213,38.0327108264216</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">118</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4708165672173,38.0172189799004</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">120</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5005664022781,38.034975583085</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">121</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4769895147073,38.0296958160983</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">122</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4786711160117,38.0295599073189</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">123</SimpleData>
+		<SimpleData name="TYPE">1 Staple</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4791976686524,38.0300121676469</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">124</SimpleData>
+		<SimpleData name="TYPE">3 Staples</SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4806440033792,38.0308368248251</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">126</SimpleData>
+		<SimpleData name="TYPE">1 Staple</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4814787848739,38.0309194859709</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">127</SimpleData>
+		<SimpleData name="TYPE">1 Staple</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.481377984615,38.0308968549935</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">130</SimpleData>
+		<SimpleData name="TYPE">4 Staple</SimpleData>
+		<SimpleData name="NOTES">8 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4829644365529,38.031262409625</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">131</SimpleData>
+		<SimpleData name="TYPE">1 Staple</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4785679518999,38.0299175289019</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">132</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.482247908302,38.0495286309496</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">133</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4756673106984,38.0248452178379</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">134</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4764050757891,38.0515706488091</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">135</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4968311234137,38.0264584848521</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">136</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5060327896732,38.0222809158436</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">137</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4752158506725,38.0522709595252</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">138</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4711084327481,38.0636443088679</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">139</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.482640264045,38.0528382688561</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">140</SimpleData>
+		<SimpleData name="TYPE">11 Staple</SimpleData>
+		<SimpleData name="NOTES">22</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4777589810402,38.0303639759384</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">141</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5033160643398,38.0142518724158</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">142</SimpleData>
+		<SimpleData name="TYPE">Ribbon</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4868322231847,38.0167440937537</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">143</SimpleData>
+		<SimpleData name="TYPE">Ribbon</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4781116472266,38.0151690219348</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">144</SimpleData>
+		<SimpleData name="TYPE">Ribbon</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5003914845034,38.0287789214736</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">145</SimpleData>
+		<SimpleData name="TYPE">Art</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4911612882286,38.0400019060187</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">146</SimpleData>
+		<SimpleData name="TYPE">Art</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4912213810783,38.0399603308011</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">147</SimpleData>
+		<SimpleData name="TYPE">Ribbon</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4904703142997,38.0399246331196</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">148</SimpleData>
+		<SimpleData name="TYPE">Art in Place</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4819616794703,38.0327208077792</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">149</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4545395562623,38.024040563792</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">150</SimpleData>
+		<SimpleData name="TYPE">Wave Rack</SimpleData>
+		<SimpleData name="NOTES">7 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4802411043191,38.0315505138336</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">551</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4822693319892,38.0308531441168</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">552</SimpleData>
+		<SimpleData name="TYPE">Bike Corral</SimpleData>
+		<SimpleData name="NOTES">10 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4826853459303,38.0300436485125</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">553</SimpleData>
+		<SimpleData name="TYPE">Bike Corral</SimpleData>
+		<SimpleData name="NOTES">8 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4794200294516,38.0298144439789</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">554</SimpleData>
+		<SimpleData name="TYPE">U</SimpleData>
+		<SimpleData name="NOTES">2</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4752244844489,38.0246099004976</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">556</SimpleData>
+		<SimpleData name="TYPE">U</SimpleData>
+		<SimpleData name="NOTES">3</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4754602445458,38.0248685122982</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">557</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4997526827737,38.0342114995744</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">558</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.5007901208617,38.0346557690886</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">559</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4774541321233,38.0296188844912</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">560</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4776114295041,38.0296774716955</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">561</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4779014769242,38.0303646456538</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">562</SimpleData>
+		<SimpleData name="TYPE">Bike Corral</SimpleData>
+		<SimpleData name="NOTES">6 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4778282041292,38.0312194158036</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">563</SimpleData>
+		<SimpleData name="TYPE">8 Staples</SimpleData>
+		<SimpleData name="NOTES">16 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4798613630449,38.0305506241755</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">564</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4815137694916,38.0287150900723</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">565</SimpleData>
+		<SimpleData name="TYPE">Bike Corral</SimpleData>
+		<SimpleData name="NOTES">8 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4768562904625,38.0271513947388</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">566</SimpleData>
+		<SimpleData name="TYPE">Bike Corral</SimpleData>
+		<SimpleData name="NOTES">8 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4780131152649,38.0266977938533</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">567</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4828287084575,38.0247553473932</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">568</SimpleData>
+		<SimpleData name="TYPE">3 Staple</SimpleData>
+		<SimpleData name="NOTES">4 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4836616946899,38.0238624645515</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">569</SimpleData>
+		<SimpleData name="TYPE">1 Bollard</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4856193796079,38.0303192598657</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">570</SimpleData>
+		<SimpleData name="TYPE">1 Bollard</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4900055722517,38.0315713687237</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">571</SimpleData>
+		<SimpleData name="TYPE">1 Bollard</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4979385743825,38.0334089060249</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Bicycle_Rack_Points">
+		<SimpleData name="OBJECTID">572</SimpleData>
+		<SimpleData name="TYPE">2 Staple</SimpleData>
+		<SimpleData name="NOTES">2 Bikes</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-78.4877928713911,38.0375366736125</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>
