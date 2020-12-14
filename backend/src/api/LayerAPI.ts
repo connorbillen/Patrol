@@ -1,5 +1,5 @@
 import { DataSource } from 'apollo-datasource'
-import { Database } from 'sqlite3'
+import { Database, RunResult } from 'better-sqlite3'
 
 import { Layer, Point } from '../types'
 
@@ -17,35 +17,46 @@ class LayerAPI extends DataSource<any> {
     }
 
     async getLayers(): Promise<Array<Layer>> {
-        const layers: Array<Layer> = new Array<Layer>();
-        
-        this.db.each(`SELECT * FROM layers`, (_err: Error, layer: Layer): void => {
-            layers.push({
-                id: layer.id,
-                title: layer.title,
-                time_enabled: layer.time_enabled
-            })
-        })
-
-        return layers
+        return this.db.prepare(`SELECT * FROM layers`).all()
     }
 
     async getPoints(layerID: number): Promise<Array<Point>> {
-        const points: Array<Point> = new Array<Point>();
-        
-        this.db.each(`
-            SELECT * FROM points
-            WHERE layer_id=${ layerID }
-        `,
-        (_err: Error, point: Point): void => {
-            points.push({
-                id: point.id,
-                lat: point.lat,
-                lon: point.lon
-            })
-        })
+        return this.db.prepare(`
+            SELECT * FROM points 
+            WHERE layer_id = ${ layerID }
+        `).all()
+    }
 
-        return points
+    async addLayer(title: string, time_enabled: boolean): Promise<any> {
+        let response: RunResult
+        try {
+            response = this.db.prepare(`
+                INSERT INTO layers
+                (title, time_enabled)
+                VALUES
+                ('${ title }', ${ time_enabled })
+            `).run()
+        } catch (err) {
+            console.log('err: ', err)
+            return { success: false }
+        }
+        return { success: true, id: response.lastInsertRowid }
+    }
+
+    async addPoint(layer_id: number, lat: number, lon: number, timestart?: number, timeend?: number): Promise<any> { 
+        try {
+            this.db.prepare(`
+                INSERT INTO points
+                (lat, lon, timestart, timeend, layer_id)
+                VALUES
+                (${ lat }, ${ lon }, ${ timestart ? timestart : "NULL" }, ${ timeend ? timeend : "NULL" }, ${ layer_id })
+            `).run()
+        } catch (err) {
+            console.log('err: ', err)
+            return { success: false }
+        }
+
+        return { success: true }
     }
 }
 

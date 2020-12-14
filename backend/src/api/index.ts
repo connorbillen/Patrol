@@ -1,3 +1,5 @@
 import LayerAPI from './LayerAPI'
+import resolvers from './resolvers'
+import initDB from './initDB'
 
-export { LayerAPI }
+export { LayerAPI, resolvers, initDB }

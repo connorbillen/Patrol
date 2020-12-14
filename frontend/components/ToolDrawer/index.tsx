@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react'
+import { Fragment, MouseEvent as ReactMouseEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { ChromePicker } from 'react-color'
 import { Drawer, List, ListSubheader, ListItem, ListItemIcon, ListItemText, Collapse, makeStyles } from '@material-ui/core'
@@ -7,7 +7,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 
 import { actions } from '../../state'
-import { State, Layers } from '../../interfaces'
+import { State } from '../../interfaces'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,19 +23,27 @@ const useStyles = makeStyles((theme) => ({
 
 const ToolDrawer = (): JSX.Element => {
     const classes = useStyles();
-    const drawerOpen: boolean = useSelector((state: State) => state.ToolDrawer.open)
-    const layers: Layers = useSelector((state: State) => state.Layers)
+    const state: State = useSelector((state: State) => state)
     const dispatch = useDispatch()
+
     const toggleDrawer = (): void => {
-        dispatch({ type: actions.TOGGLE_TOOLDRAWER })
+        dispatch({ type: actions.TOGGLE_TOOLDRAWER, data: null })
     }
-    const [open, setOpen] = useState(true);
-    const handleClick = () => {
-        setOpen(!open);
-    };
+
+    const expandLayerGroup = (layerGroup: string) => {
+        dispatch({ type: actions.EXPAND_LAYER_CONTAINER, data: {id: layerGroup} })
+    }
+
+    const toggleLayer = (layerGroup: string, layerID: number) => {
+        dispatch({ type: actions.TOGGLE_LAYER, data: {layerGroup, layerID} })
+    }
+
+    const toggleLayerContainer = (layerGroup: string) => {
+        dispatch({ type: actions.TOGGLE_LAYER_CONTAINER, data: {id: layerGroup} })
+    }
 
     return (
-        <Drawer anchor={ 'left' } open={ drawerOpen } onClose={ toggleDrawer }>
+        <Drawer anchor={ 'left' } open={ state.ToolDrawer.open } onClose={ toggleDrawer }>
             <List
                 component="nav"
                 aria-labelledby="nested-list-subheader"
@@ -46,35 +54,40 @@ const ToolDrawer = (): JSX.Element => {
                 }
                 className={classes.root}
             >
-                {Object.keys(layers).map((layerGroup, index) => {
+                { Object.keys(state.Layers).map((layerGroup, index) => {
                     return ( 
                         <Fragment key={ index }>
-                            <ListItem button onClick={handleClick}>
+                            <ListItem button onClick={ () => { expandLayerGroup(layerGroup) }}>
                                 <ListItemIcon>
                                     <Checkbox
                                         edge="start"
-                                        checked={false}
-                                        tabIndex={-1}
-                                        inputProps={{ 'aria-labelledby': layers[layerGroup].label }}
+                                        checked={ state.Layers[layerGroup].active }
+                                        tabIndex={ -1 }
+                                        inputProps={{ 'aria-labelledby': state.Layers[layerGroup].title }}
+                                        onClick={ (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => { 
+                                            event.stopPropagation()
+                                            toggleLayerContainer(layerGroup)
+                                        }}
                                     />
                                 </ListItemIcon>
-                                <ListItemText primary={ layers[layerGroup].label } />
-                                {open ? <ExpandLess /> : <ExpandMore />}
+                                <ListItemText primary={ state.Layers[layerGroup].title } />
+                                { state.Layers[layerGroup].expanded ? <ExpandLess /> : <ExpandMore /> }
                             </ListItem>
-                            <Collapse in={open} timeout="auto" unmountOnExit>
+                            <Collapse in={ state.Layers[layerGroup].expanded } timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>
-                                    {layers[layerGroup].layers.map((layer, index) => {
+                                    { Object.keys(state.Layers[layerGroup].layers).map((layer, index) => {
                                         return (
                                             <ListItem button className={classes.nested} key={ index }>
                                                 <ListItemIcon>
                                                     <Checkbox
                                                         edge="start"
-                                                        checked={false}
-                                                        tabIndex={-1}
-                                                        inputProps={{ 'aria-labelledby': layers[layerGroup].label }}
+                                                        checked={ state.Layers[layerGroup].layers[layer].active } 
+                                                        tabIndex={ -1 }
+                                                        inputProps={{ 'aria-labelledby': state.Layers[layerGroup].title }}
+                                                        onClick={ () => { toggleLayer(layerGroup, state.Layers[layerGroup].layers[layer].id) }}
                                                     />
                                                 </ListItemIcon>
-                                                <ListItemText primary={ layer.label } />
+                                                <ListItemText primary={ state.Layers[layerGroup].layers[layer].title } />
                                             </ListItem>
                                         )
                                     })}

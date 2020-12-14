@@ -1,8 +1,9 @@
 // import Head from 'next/head'
 // import styles from '../styles/Home.module.css'
+import { DocumentNode, gql, useQuery } from '@apollo/client'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { Fragment } from 'react'
+import { Dispatch, Fragment } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from '@material-ui/core'
@@ -29,39 +30,55 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const GET_LAYERS: DocumentNode = gql`
+    query GetLayers {
+        layers {
+            id
+            title
+            time_enabled
+        }
+    }
+`
+
 export default function Home() {
-  const classes = useStyles()
-  const dispatch = useDispatch()
+    const classes = useStyles()
+    const dispatch: Dispatch<any> = useDispatch()
+    const handleMenuClick = (): void => {
+        dispatch({ type: actions.TOGGLE_TOOLDRAWER })
+    }
+    const {data, error} = useQuery<any, any>(GET_LAYERS)
 
-  const handleMenuClick = (): void => {
-    debugger
-    dispatch({ type: actions.TOGGLE_TOOLDRAWER })
-  }
+    if (error) return (<div>error!</div>)
+    if (data) {
+        data.layers.map((layer) => {
+            dispatch({ type: actions.ADD_LAYER, data: layer })
+        })
+    }
 
-  return (
-    <Fragment>
-      <Head>
-          <title>Patrol</title>
-        </Head>
-      <div style={{ height: '100%' }}>
-          <AppBar position="absolute">
-            <Toolbar>
-              <IconButton onClick={ () => { handleMenuClick() } } edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" className={classes.title}>
-                Patrol
-              </Typography>
-              <Button color="inherit">Upload Data</Button>
-            </Toolbar>
-          </AppBar>
+    return (
+        <Fragment>
+            <Head>
+                <title>Patrol</title>
+            </Head>
+            <div style={{ height: '100%' }}>
+                <AppBar position="absolute">
+                    <Toolbar>
+                        <IconButton onClick={() => { handleMenuClick() }} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" className={classes.title}>
+                            Patrol
+                    </Typography>
+                        <Button color="inherit">Upload Data</Button>
+                    </Toolbar>
+                </AppBar>
 
-          <ToolDrawer />
+                <ToolDrawer />
 
-          <UploadModal />
+                <UploadModal />
 
-          <MapWrapper />
-      </div>
-    </Fragment>
-  )
+                <MapWrapper />
+            </div>
+        </Fragment>
+    )
 }

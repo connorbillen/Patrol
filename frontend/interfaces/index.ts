@@ -1,14 +1,17 @@
 export interface Layer {
     active: boolean,
-    label: string,
-    color: string
+    title: string,
+    time_enabled: boolean,
+    color: string,
+    id: number
 }
 
 export interface Layers {
     [k: string]: {
-        label: string,
+        title: string,
         expanded: boolean,
-        layers: Array<Layer>
+        active: boolean,
+        layers: { [k: string]: Layer }
     }
 }
 

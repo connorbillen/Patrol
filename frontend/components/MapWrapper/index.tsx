@@ -14,7 +14,6 @@ L.Marker.prototype.options.icon = DefaultIcon
 
 const MapWrapper = (): JSX.Element => {
     const position: LatLngExpression = [51.505, -0.09]
-    debugger
 
     return (
         <div style={{ height: '100%' }}>
