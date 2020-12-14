@@ -1,6 +1,5 @@
 import { Fragment, MouseEvent as ReactMouseEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { ChromePicker } from 'react-color'
 import { Drawer, List, ListSubheader, ListItem, ListItemIcon, ListItemText, Collapse, makeStyles } from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox'
 import ExpandLess from '@material-ui/icons/ExpandLess'

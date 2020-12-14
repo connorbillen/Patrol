@@ -2,8 +2,8 @@ const resolvers: any = {
     Query: {
         layers: (_, __, { dataSources }) =>
             dataSources.layerAPI.getLayers(),
-        points: (_, { layerID }, { dataSources }) =>
-            dataSources.layerAPI.getPoints(layerID)
+        points: (_, { layerIDs }, { dataSources }) =>
+            dataSources.layerAPI.getPoints(layerIDs)
     },
     Mutation: {
         addLayer: (_, { title, time_enabled }, { dataSources }) =>

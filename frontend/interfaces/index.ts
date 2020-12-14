@@ -15,9 +15,25 @@ export interface Layers {
     }
 }
 
+export interface Point {
+    lat: number,
+    lon: number
+}
+
+export interface Map {
+    points: {
+        [k: string]: {
+            lat: number,
+            lon: number,
+            layer_id: number
+        }
+    }
+}
+
 export interface State {
     ToolDrawer: {
         open: boolean
     },
-    Layers: Layers
+    Layers: Layers,
+    Map: Map
 }

@@ -1,3 +1,4 @@
+import { DocumentNode, gql } from '@apollo/client'
 import { CollectionsOutlined } from '@material-ui/icons'
 import { createStore, Store } from 'redux'
 
@@ -30,6 +31,9 @@ class StateManager {
                 active: false,
                 layers: {}
             }
+        },
+        Map: {
+            points: {}
         }
     }
 

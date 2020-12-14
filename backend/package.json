@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "start": "ts-node src/index.ts",
-    "initDB": "shx rm -f ./DB.db && ts-node ./src/api/initDB.ts"
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
     "apollo-server": "^2.19.0",

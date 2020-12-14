@@ -1,4 +1,4 @@
-import { Database } from 'better-sqlite3'
+import { Database, Statement, Transaction } from 'better-sqlite3'
 import MakeBikeData from '../data/cville_bike_data'
 
 const initDB = (db: Database): void => {
@@ -29,14 +29,18 @@ const initDB = (db: Database): void => {
         ('Charlottesville Bike Racks', 0)
     `).run()
 
-    bikeData.points.map((point) => {
-        db.prepare(`
-            INSERT INTO points
-            (lat, lon, timestart, timeend, layer_id)
-            VALUES
-            (${ point.lat }, ${ point.lon }, NULL, NULL, 1)
-        `).run()
+    const pointInsert: Statement = db.prepare(`
+        INSERT INTO points
+        (lat, lon, timestart, timeend, layer_id)
+        VALUES
+        (@lat, @lon, NULL, NULL, 1)
+    `)
+    const pointInsertTransaction: Transaction = db.transaction((points) => {
+        points.map((point) => {
+            pointInsert.run(point)
+        })
     })
+    pointInsertTransaction(bikeData.points)
 }
 
 export default initDB

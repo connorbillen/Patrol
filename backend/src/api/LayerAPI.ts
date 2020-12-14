@@ -20,10 +20,10 @@ class LayerAPI extends DataSource<any> {
         return this.db.prepare(`SELECT * FROM layers`).all()
     }
 
-    async getPoints(layerID: number): Promise<Array<Point>> {
+    async getPoints(layerIDs: Array<string>): Promise<Array<Point>> {
         return this.db.prepare(`
             SELECT * FROM points 
-            WHERE layer_id = ${ layerID }
+            WHERE layer_id IN (${ layerIDs })
         `).all()
     }
 
