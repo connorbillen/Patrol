@@ -1,13 +1,16 @@
 import { Database, Statement, Transaction } from 'better-sqlite3'
 import MakeBikeData from '../data/cville_bike_data'
+import MakeCrimeData from '../data/bristol_crime_data'
 
 const initDB = (db: Database): void => {
-    const bikeData: any = MakeBikeData()
+    const layers: any[] = [MakeBikeData(), MakeCrimeData()]
 
     db.prepare(`
         CREATE TABLE layers (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
+            timestart INTEGER,
+            timeend INTEGER,
             time_enabled INTEGER NOT NULL)
     `).run()
     
@@ -16,31 +19,45 @@ const initDB = (db: Database): void => {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             lat REAL NOT NULL,
             lon REAL NOT NULL,
-            timestart INTEGER,
-            timeend INTEGER,
+            timestamp INTEGER,
             layer_id INTEGER NOT NULL,
             FOREIGN KEY (layer_id) REFERENCES layers (id)
     )`).run()
     
-    db.prepare(`
+    const layerInsert: Statement = db.prepare(`
         INSERT INTO layers
-        (title, time_enabled)
+        (title, time_enabled, timestart, timeend)
         VALUES
-        ('Charlottesville Bike Racks', 0)
-    `).run()
+        (@title, @time_enabled, @timestart, @timeend)
+    `)
+    const layerInsertTransaction: Transaction = db.transaction((layers) => {
+        layers.map((layer) => {
+            if (layer.time_enabled) {
+                const timestamps: number[] = layer.points.map((point) => { return point.timestamp })
+                const timestart: number = Math.min(...timestamps)
+                const timeend: number = Math.max(...timestamps)
+                layerInsert.run({...layer, timestart: timestart, timeend: timeend})
+            } else {
+                layerInsert.run({...layer, timestart: null, timeend: null})
+            }
+        })
+    })
+    layerInsertTransaction(layers)
 
     const pointInsert: Statement = db.prepare(`
         INSERT INTO points
-        (lat, lon, timestart, timeend, layer_id)
+        (lat, lon, timestamp, layer_id)
         VALUES
-        (@lat, @lon, NULL, NULL, 1)
+        (@lat, @lon, @timestamp, @layer_id)
     `)
-    const pointInsertTransaction: Transaction = db.transaction((points) => {
+    const pointInsertTransaction: Transaction = db.transaction((points, layer_id) => {
         points.map((point) => {
-            pointInsert.run(point)
+            pointInsert.run({...point, layer_id})
         })
     })
-    pointInsertTransaction(bikeData.points)
+    layers.map((layer, index) => {
+        pointInsertTransaction(layer.points, index + 1)
+    })
 }
 
 export default initDB

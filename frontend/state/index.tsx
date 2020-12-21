@@ -1,15 +1,15 @@
-import { DocumentNode, gql } from '@apollo/client'
-import { CollectionsOutlined } from '@material-ui/icons'
 import { createStore, Store } from 'redux'
 
-import { State } from '../interfaces'
+import { Layer, Map, State, TimeSlider } from '../interfaces'
 
 export enum actions {
     'TOGGLE_TOOLDRAWER' = 'TOGGLE_TOOLDRAWER',
     'ADD_LAYER' = 'ADD_LAYER',
     'EXPAND_LAYER_CONTAINER' = 'EXPAND_LAYER_CONTAINER',
     'TOGGLE_LAYER' = 'TOGGLE_LAYER',
-    'TOGGLE_LAYER_CONTAINER' = 'TOGGLE_LAYER_CONTAINER'
+    'TOGGLE_LAYER_CONTAINER' = 'TOGGLE_LAYER_CONTAINER',
+    'UPDATE_SLIDER_RANGE' = 'UPDATE_SLIDER_RANGE',
+    'UPDATE_MAP_RANGE' = 'UPDATE_MAP_RANGE'
 }
 
 class StateManager {
@@ -33,7 +33,15 @@ class StateManager {
             }
         },
         Map: {
-            points: {}
+            timestart: null,
+            timeend: null
+        },
+        TimeSlider: {
+            enabled: false,
+            timestart: null,
+            timeend: null,
+            currentStart: null,
+            currentEnd: null
         }
     }
 
@@ -43,40 +51,72 @@ class StateManager {
 
     private _rootReducer = (state: State = this.initState, action: {type: string, data?: any}): State => {
         switch(action.type) {
-            case actions.TOGGLE_TOOLDRAWER:
+            case actions.TOGGLE_TOOLDRAWER: {
                 return { ...state, ToolDrawer: {open: !state.ToolDrawer.open}}
-            case actions.ADD_LAYER:
-                if (action.data.time_enabled && !state.Layers.historical.layers[action.data.id]) {
+            }
+            case actions.ADD_LAYER: {
+                if (action.data.time_enabled === 1 && !state.Layers.historical.layers[action.data.id]) {
                     const newLayers = { ...state.Layers }
                     newLayers.historical.layers[action.data.id] = { ...action.data, active: false }
                     return { ...state, Layers: newLayers }
-                } else if (!action.data.time_enabled && !state.Layers.static.layers[action.data.id]) {
+                } else if (action.data.time_enabled === 0 && !state.Layers.static.layers[action.data.id]) {
                     const newLayers = { ...state.Layers }
                     newLayers.static.layers[action.data.id] = { ...action.data, active: false }
                     return { ...state, Layers: newLayers }
                 }
 
                 return state
-            case actions.EXPAND_LAYER_CONTAINER:
+            }
+            case actions.EXPAND_LAYER_CONTAINER: {
                 const expandedLayerContainer = { ...state.Layers }
                 expandedLayerContainer[action.data.id].expanded = !state.Layers[action.data.id].expanded
                 return { ...state, Layers: expandedLayerContainer }
-            case actions.TOGGLE_LAYER:
-                const toggledLayer = { ...state.Layers }
-                toggledLayer[action.data.layerGroup].layers[action.data.layerID].active =
-                    !toggledLayer[action.data.layerGroup].layers[action.data.layerID].active
-                toggledLayer[action.data.layerGroup].active =
-                    Object.keys(toggledLayer[action.data.layerGroup].layers).some((layer) => {
-                        return toggledLayer[action.data.layerGroup].layers[layer].active
+            }
+            case actions.TOGGLE_LAYER: {
+                const newTimeSlider: TimeSlider = { ...state.TimeSlider }
+                const newLayers = { ...state.Layers }
+
+                newLayers[action.data.layerGroup].layers[action.data.id].active =
+                    !newLayers[action.data.layerGroup].layers[action.data.id].active
+                newLayers[action.data.layerGroup].active =
+                    Object.keys(newLayers[action.data.layerGroup].layers).some((layer) => {
+                        return newLayers[action.data.layerGroup].layers[layer].active
                     })
-                return { ...state, Layers: toggledLayer }
-            case actions.TOGGLE_LAYER_CONTAINER:
+
+                if (newLayers[action.data.layerGroup].layers[action.data.id].time_enabled) {
+                    newTimeSlider.enabled = true
+                    newTimeSlider.timestart = newTimeSlider.timestart ? Math.min(newTimeSlider.timestart, action.data.timestart) : action.data.timestart
+                    newTimeSlider.timeend = newTimeSlider.timeend ? Math.max(newTimeSlider.timeend, action.data.timeend) : action.data.timeend
+                    if (!newTimeSlider.currentStart && !newTimeSlider.currentEnd) {
+                        newTimeSlider.currentStart = newTimeSlider.timestart
+                        newTimeSlider.currentEnd = newTimeSlider.timeend
+                    }
+                } else {
+                    // remove layer
+                }
+                
+                return { ...state, Layers: newLayers, TimeSlider: newTimeSlider }
+            }
+            case actions.TOGGLE_LAYER_CONTAINER: {
                 const toggledLayerContainer = { ...state.Layers }
                 Object.keys(toggledLayerContainer[action.data.id].layers).map((layer) => {
                     toggledLayerContainer[action.data.id].layers[layer].active = !toggledLayerContainer[action.data.id].active
                 })
                 toggledLayerContainer[action.data.id].active = !toggledLayerContainer[action.data.id].active
                 return { ...state, Layers: toggledLayerContainer }
+            }
+            case actions.UPDATE_SLIDER_RANGE: {
+                const newTimeSlider: TimeSlider = { ...state.TimeSlider }
+                newTimeSlider.currentStart = action.data[0]
+                newTimeSlider.currentEnd = action.data[1]
+                return { ...state, TimeSlider: newTimeSlider }
+            }
+            case actions.UPDATE_MAP_RANGE: {
+                const newMap: Map = { ...state.Map }
+                newMap.timestart = state.TimeSlider.currentStart
+                newMap.timeend = state.TimeSlider.currentEnd
+                return { ...state, Map: newMap }
+            }
             default:
                 return state
         }

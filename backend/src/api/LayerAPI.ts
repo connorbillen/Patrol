@@ -20,14 +20,22 @@ class LayerAPI extends DataSource<any> {
         return this.db.prepare(`SELECT * FROM layers`).all()
     }
 
-    async getPoints(layerIDs: Array<string>): Promise<Array<Point>> {
-        return this.db.prepare(`
-            SELECT * FROM points 
-            WHERE layer_id IN (${ layerIDs })
-        `).all()
+    async getPoints(layerIDs: Array<string>, timestart?: number, timeend?: number): Promise<Array<Point>> {
+        if (timestart || timeend) {
+            return this.db.prepare(`
+                SELECT * FROM points 
+                WHERE layer_id IN (${ layerIDs })
+                AND timestamp BETWEEN ${ timestart } AND ${ timeend }
+            `).all()
+        } else {
+            return this.db.prepare(`
+                SELECT * FROM points 
+                WHERE layer_id IN (${ layerIDs })
+            `).all()
+        }
     }
 
-    async addLayer(title: string, time_enabled: boolean): Promise<any> {
+    async addLayer(title: string, time_enabled: number): Promise<any> {
         let response: RunResult
         try {
             response = this.db.prepare(`

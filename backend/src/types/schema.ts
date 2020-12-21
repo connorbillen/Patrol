@@ -6,7 +6,9 @@ const typeDefs: DocumentNode = gql`
     type Layer {
         id: ID!
         title: String!
-        time_enabled: Boolean!
+        time_enabled: Int!
+        timestart: Int
+        timeend: Int
         points: [Point]
     }
 
@@ -14,18 +16,17 @@ const typeDefs: DocumentNode = gql`
         id: ID!
         lat: Float!
         lon: Float!
-        timestart: Int
-        timeend: Int
+        timestamp: Int
     }
 
     type Query {
         layers: [Layer]!
-        points(layerIDs: [ID]!): [Point]!
+        points(layerIDs: [ID]!, timestart: Int, timeend: Int): [Point]!
     }
 
     type Mutation {
-        addLayer(title: String!, time_enabled: Boolean!): AddLayerResponse!
-        addPoint(lat: Float!, lon: Float!, timestart: Int, timeend: Int, layerID: ID!): AddPointResponse!
+        addLayer(title: String!, time_enabled: Int!, timestart: Int, timeend: Int): AddLayerResponse!
+        addPoint(lat: Float!, lon: Float!, layerID: ID!, timestamp: Int): AddPointResponse!
     }
 
     type AddLayerResponse {

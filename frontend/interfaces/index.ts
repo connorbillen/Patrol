@@ -1,9 +1,11 @@
 export interface Layer {
     active: boolean,
     title: string,
-    time_enabled: boolean,
+    time_enabled: number,
     color: string,
-    id: number
+    id: number,
+    timestart?: number,
+    timeend?: number
 }
 
 export interface Layers {
@@ -17,17 +19,21 @@ export interface Layers {
 
 export interface Point {
     lat: number,
-    lon: number
+    lon: number,
+    timestamp?: number
 }
 
 export interface Map {
-    points: {
-        [k: string]: {
-            lat: number,
-            lon: number,
-            layer_id: number
-        }
-    }
+    timestart: number,
+    timeend: number
+}
+
+export interface TimeSlider {
+    enabled: boolean,
+    timestart: number,
+    timeend: number,
+    currentStart: number,
+    currentEnd: number
 }
 
 export interface State {
@@ -35,5 +41,6 @@ export interface State {
         open: boolean
     },
     Layers: Layers,
-    Map: Map
+    Map: Map,
+    TimeSlider: TimeSlider
 }

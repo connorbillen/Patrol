@@ -12,6 +12,7 @@
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "apollo-client": "^2.6.10",
+    "dayjs": "^1.9.7",
     "graphql": "^15.4.0",
     "leaflet": "^1.7.1",
     "next": "10.0.3",
@@ -22,7 +23,8 @@
     "react-draggable": "^4.4.3",
     "react-leaflet": "^3.0.2",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "use-debounce": "^5.2.0"
   },
   "devDependencies": {
     "@types/leaflet": "^1.5.19",

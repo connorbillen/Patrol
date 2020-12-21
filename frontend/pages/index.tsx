@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import { actions } from '../state'
 
 import ToolDrawer from '../components/ToolDrawer'
+import TimeSlider from '../components/TimeSlider'
 import UploadModal from '../components/UploadModal'
 const MapWrapper = dynamic(
   () => import('../components/MapWrapper'),
@@ -24,10 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
+  }
 }));
 
 const GET_LAYERS: DocumentNode = gql`
@@ -36,6 +34,8 @@ const GET_LAYERS: DocumentNode = gql`
             id
             title
             time_enabled
+            timestart
+            timeend
         }
     }
 `
@@ -63,13 +63,14 @@ export default function Home() {
             <div style={{ height: '100%' }}>
                 <AppBar position="absolute">
                     <Toolbar>
-                        <IconButton onClick={() => { handleMenuClick() }} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                        <IconButton onClick={() => { handleMenuClick() }} edge="start" className={ classes.menuButton } color="inherit" aria-label="menu">
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" className={classes.title}>
+                        <Typography variant="h6">
                             Patrol
-                    </Typography>
-                        <Button color="inherit">Upload Data</Button>
+                        </Typography>
+                        <TimeSlider />
+                        <Button color="inherit">Upload</Button>
                     </Toolbar>
                 </AppBar>
 

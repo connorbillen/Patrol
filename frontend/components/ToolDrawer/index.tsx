@@ -6,7 +6,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 
 import { actions } from '../../state'
-import { State } from '../../interfaces'
+import { Layer, State } from '../../interfaces'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,8 +33,8 @@ const ToolDrawer = (): JSX.Element => {
         dispatch({ type: actions.EXPAND_LAYER_CONTAINER, data: {id: layerGroup} })
     }
 
-    const toggleLayer = (layerGroup: string, layerID: number) => {
-        dispatch({ type: actions.TOGGLE_LAYER, data: {layerGroup, layerID} })
+    const toggleLayer = (layer: Layer & {layerGroup: string}) => {
+        dispatch({ type: actions.TOGGLE_LAYER, data: layer })
     }
 
     const toggleLayerContainer = (layerGroup: string) => {
@@ -83,7 +83,7 @@ const ToolDrawer = (): JSX.Element => {
                                                         checked={ state.Layers[layerGroup].layers[layer].active } 
                                                         tabIndex={ -1 }
                                                         inputProps={{ 'aria-labelledby': state.Layers[layerGroup].title }}
-                                                        onClick={ () => { toggleLayer(layerGroup, state.Layers[layerGroup].layers[layer].id) }}
+                                                        onClick={ () => { toggleLayer({ ...state.Layers[layerGroup].layers[layer], layerGroup }) }}
                                                     />
                                                 </ListItemIcon>
                                                 <ListItemText primary={ state.Layers[layerGroup].layers[layer].title } />
