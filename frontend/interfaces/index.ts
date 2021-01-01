@@ -36,11 +36,16 @@ export interface TimeSlider {
     currentEnd: number
 }
 
+export interface Upload {
+    modalOpen: boolean
+}
+
 export interface State {
     ToolDrawer: {
         open: boolean
     },
     Layers: Layers,
     Map: Map,
-    TimeSlider: TimeSlider
+    TimeSlider: TimeSlider,
+    Upload: Upload
 }

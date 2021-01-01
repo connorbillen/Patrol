@@ -1,11 +1,10 @@
 import { Slider, createMuiTheme, ThemeProvider, Typography, withStyles } from '@material-ui/core'
 import { unix as UnixToDate } from 'dayjs'
 import { useSelector, useDispatch } from 'react-redux'
-import { useDebounce } from 'use-debounce'
 
 import { actions } from '../../state'
 import { State, TimeSlider as TimeSliderState} from '../../interfaces'
-import { useState } from 'react'
+import { useState, Dispatch } from 'react'
 
 const muiTheme = createMuiTheme({
     overrides: {
@@ -43,7 +42,7 @@ const TimeEndLabel = withStyles({
 
 const TimeSlider = (): JSX.Element => {
     const state: TimeSliderState = useSelector((state: State) => state.TimeSlider)
-    const dispatch = useDispatch()
+    const dispatch: Dispatch<any> = useDispatch()
     const [mapUpdater, setMapUpdater] = useState(setTimeout(() => {}, 0))
 
     const newSliderValue = (_event, range): void => {

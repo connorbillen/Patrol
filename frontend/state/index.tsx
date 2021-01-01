@@ -1,6 +1,6 @@
 import { createStore, Store } from 'redux'
 
-import { Layer, Map, State, TimeSlider } from '../interfaces'
+import { Upload, Map, State, TimeSlider } from '../interfaces'
 
 export enum actions {
     'TOGGLE_TOOLDRAWER' = 'TOGGLE_TOOLDRAWER',
@@ -9,7 +9,8 @@ export enum actions {
     'TOGGLE_LAYER' = 'TOGGLE_LAYER',
     'TOGGLE_LAYER_CONTAINER' = 'TOGGLE_LAYER_CONTAINER',
     'UPDATE_SLIDER_RANGE' = 'UPDATE_SLIDER_RANGE',
-    'UPDATE_MAP_RANGE' = 'UPDATE_MAP_RANGE'
+    'UPDATE_MAP_RANGE' = 'UPDATE_MAP_RANGE',
+    'TOGGLE_UPLOAD_MODAL' = 'TOGGLE_UPLOAD_MODAL'
 }
 
 class StateManager {
@@ -42,6 +43,9 @@ class StateManager {
             timeend: null,
             currentStart: null,
             currentEnd: null
+        },
+        Upload: {
+            modalOpen: false
         }
     }
 
@@ -116,6 +120,12 @@ class StateManager {
                 newMap.timestart = state.TimeSlider.currentStart
                 newMap.timeend = state.TimeSlider.currentEnd
                 return { ...state, Map: newMap }
+            }
+            case actions.TOGGLE_UPLOAD_MODAL: {
+                const newUpload: Upload = { ...state.Upload }
+                newUpload.modalOpen = !newUpload.modalOpen
+
+                return { ...state, Upload: newUpload }
             }
             default:
                 return state

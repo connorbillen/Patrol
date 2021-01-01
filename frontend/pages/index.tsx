@@ -46,6 +46,9 @@ export default function Home() {
     const handleMenuClick = (): void => {
         dispatch({ type: actions.TOGGLE_TOOLDRAWER })
     }
+    const handleUploadClick = (): void => {
+        dispatch({ type: actions.TOGGLE_UPLOAD_MODAL })
+    }
     const {data, error} = useQuery<any, any>(GET_LAYERS)
 
     if (error) return (<div>error!</div>)
@@ -70,7 +73,7 @@ export default function Home() {
                             Patrol
                         </Typography>
                         <TimeSlider />
-                        <Button color="inherit">Upload</Button>
+                        <Button onClick={() => { handleUploadClick() }} color="inherit">Upload</Button>
                     </Toolbar>
                 </AppBar>
 
