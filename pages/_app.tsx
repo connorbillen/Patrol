@@ -11,7 +11,7 @@ import Home from './index'
 import state from '../state'
 
 const cache: InMemoryCache = new InMemoryCache({})
-const uri: string = 'http://localhost:4000/grahql'
+const uri: string = 'http://localhost:4000/graphql'
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     cache,
     uri

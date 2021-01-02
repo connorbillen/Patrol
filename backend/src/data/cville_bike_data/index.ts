@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { parseString } from 'xml2js'
 
 const convertDataToJSON = (): Object => {
-    const xml: string = readFileSync(`${ process.cwd() }/src/data/cville_bike_data/data.kml`).toString()
+    const xml: string = readFileSync(`${ process.cwd() }/backend/src/data/cville_bike_data/data.kml`).toString()
     const jsonData: any = {
         time_enabled: 0,
         title: 'Charlottesville Bicycle Racks',

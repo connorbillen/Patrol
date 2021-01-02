@@ -1,10 +1,10 @@
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 import { readFileSync } from 'fs'
-import * as parse from 'csv-parse/lib/sync'
+import CSVParse from 'csv-parse/lib/sync'
 
 const convertDataToJSON = (): Object => {
-    const csv: string = readFileSync(`${ process.cwd() }/src/data/bristol_crime_data/data.csv`).toString()
-    const csvData = parse(csv, { 'columns': true, 'autoParse': true })
+    const csv: string = readFileSync(`${ process.cwd() }/backend/src/data/bristol_crime_data/data.csv`).toString()
+    const csvData = CSVParse(csv, { 'columns': true, 'autoParse': true })
 
     const jsonData = {
         time_enabled: 1,

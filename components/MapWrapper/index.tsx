@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Circle } from 'react-leaflet'
 import { useSelector } from 'react-redux'
 
 import 'leaflet/dist/leaflet.css'
-import { Layer, Map, Point, State, TimeSlider} from '../../interfaces'
+import { Layers, Map, Point, State } from '../../interfaces'
 
 const GET_POINTS: DocumentNode = gql`
     query GetPoints($layerIDs: [ID]!, $timestart: Int, $timeend: Int) {
@@ -20,7 +20,7 @@ const GET_POINTS: DocumentNode = gql`
 
 const MapWrapper = (): JSX.Element => {
     const center: LatLngExpression = [38.0298136917297, -78.4786164046511]
-    const layersState: Layer[] = useSelector((state: State) => state.Layers)
+    const layersState: Layers = useSelector((state: State) => state.Layers)
     const mapState: Map = useSelector((state: State) => state.Map)
     const enabledLayers = []
     Object.keys(layersState).map((layerGroup: string) => {

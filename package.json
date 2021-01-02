@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev & ts-node-dev -O '{\"module\":\"commonjs\", \"target\": \"esnext\"}' backend/src/index.ts",
     "build": "next build",
-    "start": "next start"
+    "start": "next start & ts-node -O '{\"module\":\"commonjs\", \"target\": \"esnext\"}' backend/src/index.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "apollo-client": "^2.6.10",
-    "dayjs": "^1.9.7",
+    "apollo-server": "^2.19.1",
+    "better-sqlite3": "^7.1.2",
+    "csv-parse": "^4.14.2",
+    "dayjs": "^1.9.8",
     "graphql": "^15.4.0",
     "leaflet": "^1.7.1",
     "next": "10.0.3",
@@ -23,12 +26,19 @@
     "react-draggable": "^4.4.3",
     "react-leaflet": "^3.0.2",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^5.4.1",
+    "@types/csv-parse": "^1.2.2",
     "@types/leaflet": "^1.5.19",
-    "@types/node": "^14.14.10",
+    "@types/node": "^14.14.19",
     "@types/react-redux": "^7.1.14",
-    "typescript": "^4.1.2"
+    "@types/xml2js": "^0.4.7",
+    "shx": "^0.3.3",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
   }
 }

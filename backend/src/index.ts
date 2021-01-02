@@ -2,10 +2,10 @@ import { ApolloServer } from 'apollo-server'
 
 import { typeDefs } from './types'
 import { LayerAPI, resolvers, initDB } from './api'
-import * as Database from 'better-sqlite3'
+import SQLite3 from 'better-sqlite3'
 
 // Spin up the DB
-const db: Database.Database = Database(':memory:')
+const db: SQLite3.Database = SQLite3(':memory:')
 initDB(db)
 
 const server: ApolloServer = new ApolloServer({
