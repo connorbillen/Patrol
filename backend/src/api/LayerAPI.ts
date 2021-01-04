@@ -26,6 +26,7 @@ class LayerAPI extends DataSource<any> {
                 SELECT * FROM points 
                 WHERE layer_id IN (${ layerIDs })
                 AND timestamp BETWEEN ${ timestart } AND ${ timeend }
+                OR timestamp IS NULL
             `).all()
         } else {
             return this.db.prepare(`
