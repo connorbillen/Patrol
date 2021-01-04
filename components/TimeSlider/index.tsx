@@ -1,5 +1,5 @@
 import { Slider, createMuiTheme, ThemeProvider, Typography, withStyles } from '@material-ui/core'
-import { unix as UnixToDate } from 'dayjs'
+import dayjs from 'dayjs'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { actions } from '../../state'
@@ -54,7 +54,7 @@ const TimeSlider = (): JSX.Element => {
     return (
         <ThemeProvider theme={ muiTheme }>
             <TimeStartLabel>
-                { state.enabled && state.currentStart ? UnixToDate(state.currentStart).toDate().toISOString().split('T').join(' ') : ' - ' }
+                { state.enabled && state.currentStart ? dayjs.unix(state.currentStart).toDate().toISOString().split('T').join(' ') : ' - ' }
             </TimeStartLabel>
             <Slider
                 value={ [state.currentStart, state.currentEnd] }
@@ -65,7 +65,7 @@ const TimeSlider = (): JSX.Element => {
                 disabled={ !state.enabled }
             />
             <TimeEndLabel>
-                { state.enabled && state.currentEnd ? UnixToDate(state.currentEnd).toDate().toISOString().split('T').join(' ')  : ' - ' }
+                { state.enabled && state.currentEnd ? dayjs.unix(state.currentEnd).toDate().toISOString().split('T').join(' ')  : ' - ' }
             </TimeEndLabel>
         </ThemeProvider>
     )
