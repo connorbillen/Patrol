@@ -35,14 +35,14 @@ class LayerAPI extends DataSource<any> {
         }
     }
 
-    async addLayer(title: string, time_enabled: number): Promise<any> {
+    async addLayer(title: string, time_enabled: number, time_start?: number, time_end?: number): Promise<any> {
         let response: RunResult
         try {
             response = this.db.prepare(`
                 INSERT INTO layers
-                (title, time_enabled)
+                (title, time_enabled, timestart, timeend)
                 VALUES
-                ('${ title }', ${ time_enabled })
+                ('${ title }', ${ time_enabled }, ${ time_start ? time_start : "NULL" }, ${ time_end ? time_end : "NULL" })
             `).run()
         } catch (err) {
             console.log('err: ', err)

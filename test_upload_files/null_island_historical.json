@@ -1,0 +1,33 @@
+{
+    "points": [
+        {
+            "lat": 0.0,
+            "lon": 0.0,
+            "timestamp": 1427774400
+        },
+        {
+            "lat": 0.0,
+            "lon": 0.0,
+            "timestamp": 1459396800
+        },
+        {
+            "lat": 0.0,
+            "lon": 0.0,
+            "timestamp": 1490932800
+        },
+        {
+            "lat": 0.0,
+            "lon": 0.0,
+            "timestamp": 1522468800
+        },
+        {
+            "lat": 0.0,
+            "lon": 0.0,
+            "timestamp": 1554004800
+        }
+    ],
+    "time_enabled": 1,
+    "title": "Null Island",
+    "time_start": 1427774400,
+    "time_end": 1554004800
+}

@@ -25,7 +25,7 @@ const typeDefs: DocumentNode = gql`
     }
 
     type Mutation {
-        addLayer(title: String!, time_enabled: Int!): AddLayerResponse!
+        addLayer(title: String!, time_enabled: Int!, time_start: Int, time_end: Int): AddLayerResponse!
         addPoint(lat: Float!, lon: Float!, layerID: ID!, timestamp: Int): AddPointResponse!
     }
 

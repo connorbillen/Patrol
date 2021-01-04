@@ -18,8 +18,8 @@ const ADD_POINT: DocumentNode = gql`
 `;
 
 const ADD_LAYER: DocumentNode = gql`
-  mutation AddLayer($title: String!, $time_enabled: Int!) {
-    addLayer(title: $title, time_enabled: $time_enabled) {
+  mutation AddLayer($title: String!, $time_enabled: Int!, $time_start: Int, $time_end: Int) {
+    addLayer(title: $title, time_enabled: $time_enabled, time_start: $time_start, time_end: $time_end) {
       success
       id
     }
@@ -78,15 +78,15 @@ const ModalPopup = () => {
 
     const getFile = (): Promise<Blob> => {
         return new Promise(resolve => {
-            let input = document.createElement('input');
-            input.type = 'file';
+            const input = document.createElement('input')
+            input.type = 'file'
     
             input.onchange = _ => {
-                let files = Array.from(input.files);
-                resolve(files[0]);
-            };
+                const files = Array.from(input.files)
+                resolve(files[0])
+            }
     
-            input.click();
+            input.click()
         });
     }
 
@@ -98,7 +98,9 @@ const ModalPopup = () => {
         const layer = await addLayer({
             variables: {
                 title: content.title,
-                time_enabled: content.time_enabled
+                time_enabled: content.time_enabled,
+                time_start: content.time_start,
+                time_end: content.time_end
             }
         })
         console.log('', layer)
@@ -110,7 +112,7 @@ const ModalPopup = () => {
                     variables: {
                         lat: parseFloat(point.lat as unknown as string),
                         lon: parseFloat(point.lon as unknown as string), 
-                        timestamp: dayjs(point.timestamp).unix(),
+                        timestamp: point.timestamp,
                         layerID: layer.data.addLayer.id
                     }
                 }).catch((error) => {
@@ -123,8 +125,8 @@ const ModalPopup = () => {
 
     const uploadFile = async (): Promise<Blob> => {
         const file: Blob = await getFile()
-        const reader: FileReader = new FileReader();
-        reader.readAsText(file, 'UTF-8');
+        const reader: FileReader = new FileReader()
+        reader.readAsText(file, 'UTF-8')
         reader.onload = (readerEvent: ProgressEvent<FileReader>) => {
             const content: string = readerEvent.target.result as string;
             const parsedContent: any = JSON.parse(content)
@@ -138,7 +140,7 @@ const ModalPopup = () => {
     const body = (
         <Card className={classes.root}>
           <CardContent>
-            <Typography className={classes.title} component="h2" color="textSecondary" gutterBottom>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
               Upload New Data
             </Typography>
             <Typography>
