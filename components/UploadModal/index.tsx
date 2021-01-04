@@ -1,11 +1,30 @@
+import { DocumentNode, gql, useMutation } from '@apollo/client'
 import { makeStyles } from '@material-ui/core'
 import { Modal, Card, CardContent, Typography, CardActions, Button } from '@material-ui/core'
 import dayjs from 'dayjs'
 import { Dispatch } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { State, Upload } from '../../interfaces'
+import { Point, State, Upload } from '../../interfaces'
 import { actions } from '../../state'
+
+
+const ADD_POINT: DocumentNode = gql`
+  mutation AddPoint($layerID: ID!, $lat: Float!, $lon: Float!, $timestamp: Int!) {
+    addPoint(layerID: $layerID, lat: $lat, lon: $lon, timestamp: $timestamp) {
+      success
+    }
+  }
+`;
+
+const ADD_LAYER: DocumentNode = gql`
+  mutation AddLayer($title: String!, $time_enabled: Int!) {
+    addLayer(title: $title, time_enabled: $time_enabled) {
+      success
+      id
+    }
+  }
+`;
 
 const ModalPopup = () => {
     const state: Upload = useSelector((state: State) => state.Upload)
@@ -31,6 +50,32 @@ const ModalPopup = () => {
         },
     })();
 
+    const [addLayer] = useMutation<
+        any,
+        any
+        >(
+        ADD_LAYER,
+        {
+            onCompleted({ addLayer }) {
+                if (addLayer) {
+                    console.log(addLayer.success)
+                    console.log(addLayer.id)
+                }
+            }
+        }
+    );
+
+    const [addPoint] = useMutation<any, any>(
+        ADD_POINT,
+        {
+            onCompleted({ addPoint }) {
+                if (addPoint) {
+                    console.log(addPoint.success)
+                }
+            }
+        }
+    );
+
     const getFile = (): Promise<Blob> => {
         return new Promise(resolve => {
             let input = document.createElement('input');
@@ -44,37 +89,47 @@ const ModalPopup = () => {
             input.click();
         });
     }
-    
-    const conditionalParse = (jsonString: string): any => {
-        try {
-            return { success: true, ...JSON.parse(jsonString) }
-        } catch(e) {
-            return { success: false }
-        }
-    }
 
     const validateJson = (_json: any): boolean => {
         return true
     }
 
-    const processContent = (content: any): void => {
-        if (content.time_enabled || content.title || content.points)
-            return
-        
-        parseFloat(content.points[0].lat)
-        parseFloat(content.points[0].lon)
-        dayjs(content.points[0].timestamp).unix()
+    const processContent = async (content: any): Promise<void> => {     
+        const layer = await addLayer({
+            variables: {
+                title: content.title,
+                time_enabled: content.time_enabled
+            }
+        })
+        console.log('', layer)
+
+        if (!layer.errors) {
+            content.points.forEach(async (point: Point) => {
+                console.log('', layer)
+                const newPoint = await addPoint({
+                    variables: {
+                        lat: parseFloat(point.lat as unknown as string),
+                        lon: parseFloat(point.lon as unknown as string), 
+                        timestamp: dayjs(point.timestamp).unix(),
+                        layerID: layer.data.addLayer.id
+                    }
+                }).catch((error) => {
+                    console.log('', error)
+                })
+                console.log('', newPoint)
+            })
+        }
     }
 
-    const uploadFile = async () => {
+    const uploadFile = async (): Promise<Blob> => {
         const file: Blob = await getFile()
         const reader: FileReader = new FileReader();
         reader.readAsText(file, 'UTF-8');
         reader.onload = (readerEvent: ProgressEvent<FileReader>) => {
             const content: string = readerEvent.target.result as string;
-            const parsedContent: any = conditionalParse(content)
-            if (parsedContent.success && validateJson(parsedContent)) {
-                processContent(content)
+            const parsedContent: any = JSON.parse(content)
+            if (validateJson(parsedContent)) {
+                processContent(parsedContent)
             }
         }
         return file
@@ -83,11 +138,11 @@ const ModalPopup = () => {
     const body = (
         <Card className={classes.root}>
           <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
+            <Typography className={classes.title} component="h2" color="textSecondary" gutterBottom>
               Upload New Data
             </Typography>
-            <Typography variant="h5" component="h2">
-              This is a test
+            <Typography>
+              TODO: Upload instructions go here
             </Typography>
           </CardContent>
           <CardActions>

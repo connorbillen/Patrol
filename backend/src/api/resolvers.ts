@@ -6,8 +6,8 @@ const resolvers: any = {
             dataSources.layerAPI.getPoints(layerIDs, timestart, timeend)
     },
     Mutation: {
-        addLayer: (_, { title, time_enabled, timestart, timeend }, { dataSources }) =>
-            dataSources.layerAPI.addLayer(title, time_enabled, timestart, timeend),
+        addLayer: (_, { title, time_enabled }, { dataSources }) =>
+            dataSources.layerAPI.addLayer(title, time_enabled),
         addPoint: (_, { layerID, lat, lon, timestamp }, { dataSources }) =>
             dataSources.layerAPI.addPoint(layerID, lat, lon, timestamp)
     }

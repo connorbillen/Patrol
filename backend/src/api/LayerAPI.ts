@@ -46,18 +46,18 @@ class LayerAPI extends DataSource<any> {
             `).run()
         } catch (err) {
             console.log('err: ', err)
-            return { success: false }
+            return { success: false, id: null }
         }
         return { success: true, id: response.lastInsertRowid }
     }
 
-    async addPoint(layer_id: number, lat: number, lon: number, timestart?: number, timeend?: number): Promise<any> { 
+    async addPoint(layer_id: number, lat: number, lon: number, timestamp?: number): Promise<any> { 
         try {
             this.db.prepare(`
                 INSERT INTO points
-                (lat, lon, timestart, timeend, layer_id)
+                (lat, lon, timestamp, layer_id)
                 VALUES
-                (${ lat }, ${ lon }, ${ timestart ? timestart : "NULL" }, ${ timeend ? timeend : "NULL" }, ${ layer_id })
+                (${ lat }, ${ lon }, ${ timestamp ? timestamp : "NULL" }, ${ layer_id })
             `).run()
         } catch (err) {
             console.log('err: ', err)
