@@ -10,7 +10,7 @@ import { actions } from '../../state'
 
 
 const ADD_POINT: DocumentNode = gql`
-  mutation AddPoint($layerID: ID!, $lat: Float!, $lon: Float!, $timestamp: Int!) {
+  mutation AddPoint($layerID: ID!, $lat: Float!, $lon: Float!, $timestamp: Int) {
     addPoint(layerID: $layerID, lat: $lat, lon: $lon, timestamp: $timestamp) {
       success
     }
