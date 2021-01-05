@@ -18,8 +18,8 @@ const ADD_POINT: DocumentNode = gql`
 `;
 
 const ADD_LAYER: DocumentNode = gql`
-  mutation AddLayer($title: String!, $time_enabled: Int!, $time_start: Int, $time_end: Int) {
-    addLayer(title: $title, time_enabled: $time_enabled, time_start: $time_start, time_end: $time_end) {
+  mutation AddLayer($title: String!, $time_enabled: Int!, $lat: Float!, $lon: Float!, $time_start: Int, $time_end: Int) {
+    addLayer(title: $title, time_enabled: $time_enabled, lat: $lat, lon: $lon, time_start: $time_start, time_end: $time_end) {
       success
       id
     }
@@ -58,8 +58,7 @@ const ModalPopup = () => {
         {
             onCompleted({ addLayer }) {
                 if (addLayer) {
-                    console.log(addLayer.success)
-                    console.log(addLayer.id)
+                    return
                 }
             }
         }
@@ -70,7 +69,7 @@ const ModalPopup = () => {
         {
             onCompleted({ addPoint }) {
                 if (addPoint) {
-                    console.log(addPoint.success)
+                    return
                 }
             }
         }
@@ -99,16 +98,16 @@ const ModalPopup = () => {
             variables: {
                 title: content.title,
                 time_enabled: content.time_enabled,
+                lat: content.lat,
+                lon: content.lon,
                 time_start: content.time_start,
-                time_end: content.time_end
+                time_end: content.time_end,
             }
         })
-        console.log('', layer)
 
         if (!layer.errors) {
-            content.points.forEach(async (point: Point) => {
-                console.log('', layer)
-                const newPoint = await addPoint({
+            await Promise.all(content.points.map((point: Point) => {
+                return addPoint({
                     variables: {
                         lat: parseFloat(point.lat as unknown as string),
                         lon: parseFloat(point.lon as unknown as string), 
@@ -118,8 +117,7 @@ const ModalPopup = () => {
                 }).catch((error) => {
                     console.log('', error)
                 })
-                console.log('', newPoint)
-            })
+            }))
         }
     }
 
