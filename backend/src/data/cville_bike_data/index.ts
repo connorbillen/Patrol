@@ -6,7 +6,9 @@ const convertDataToJSON = (): Object => {
     const jsonData: any = {
         time_enabled: 0,
         title: 'Charlottesville Bicycle Racks',
-        points: []
+        lat: 38.0298136917297,
+        lon: -78.4786164046511,
+        points: [],
     }
 
     parseString(xml, (_err: Error, result: { kml: { Document: Array<any> }}): void => {

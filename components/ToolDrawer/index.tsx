@@ -1,10 +1,7 @@
 import { Fragment, MouseEvent as ReactMouseEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Drawer, List, ListSubheader, ListItem, ListItemIcon, ListItemText, Collapse, makeStyles } from '@material-ui/core'
-import Checkbox from '@material-ui/core/Checkbox'
-import ExpandLess from '@material-ui/icons/ExpandLess'
-import ExpandMore from '@material-ui/icons/ExpandMore'
-
+import { Checkbox, Drawer, List, ListSubheader, ListItem, ListItemIcon, ListItemText, Collapse, makeStyles } from '@material-ui/core'
+import { ExpandLess, ExpandMore, ZoomIn } from '@material-ui/icons'
 import { actions } from '../../state'
 import { Layer, State } from '../../interfaces'
 
@@ -39,6 +36,10 @@ const ToolDrawer = (): JSX.Element => {
 
     const toggleLayerContainer = (layerGroup: string) => {
         dispatch({ type: actions.TOGGLE_LAYER_CONTAINER, data: {id: layerGroup} })
+    }
+
+    const zoomLayer = (layer: Layer & {layerGroup: string}) => {
+        dispatch({ type: actions.ZOOM_LAYER, data: layer })
     }
 
     return (
@@ -83,10 +84,19 @@ const ToolDrawer = (): JSX.Element => {
                                                         checked={ state.Layers[layerGroup].layers[layer].active } 
                                                         tabIndex={ -1 }
                                                         inputProps={{ 'aria-labelledby': state.Layers[layerGroup].title }}
-                                                        onClick={ () => { toggleLayer({ ...state.Layers[layerGroup].layers[layer], layerGroup }) }}
+                                                        onClick={ (event: ReactMouseEvent<HTMLButtonElement, MouseEvent>) => {
+                                                            event.stopPropagation()
+                                                            toggleLayer({ ...state.Layers[layerGroup].layers[layer], layerGroup })
+                                                        }}
                                                     />
                                                 </ListItemIcon>
                                                 <ListItemText primary={ state.Layers[layerGroup].layers[layer].title } />
+                                                <ZoomIn onClick={
+                                                    (event) => {
+                                                        event.stopPropagation()
+                                                        zoomLayer({ ...state.Layers[layerGroup].layers[layer], layerGroup })
+                                                    }
+                                                }/>
                                             </ListItem>
                                         )
                                     })}

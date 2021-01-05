@@ -9,6 +9,8 @@ const convertDataToJSON = (): Object => {
     const jsonData = {
         time_enabled: 1,
         title: 'Bristol Crime Data',
+        lat: 51.454514,
+        lon:-2.587910,
         points: []
     }
 

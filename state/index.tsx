@@ -10,7 +10,8 @@ export enum actions {
     'TOGGLE_LAYER_CONTAINER' = 'TOGGLE_LAYER_CONTAINER',
     'UPDATE_SLIDER_RANGE' = 'UPDATE_SLIDER_RANGE',
     'UPDATE_MAP_RANGE' = 'UPDATE_MAP_RANGE',
-    'TOGGLE_UPLOAD_MODAL' = 'TOGGLE_UPLOAD_MODAL'
+    'TOGGLE_UPLOAD_MODAL' = 'TOGGLE_UPLOAD_MODAL',
+    'ZOOM_LAYER' = 'ZOOM_LAYER'
 }
 
 class StateManager {
@@ -35,7 +36,9 @@ class StateManager {
         },
         Map: {
             timestart: null,
-            timeend: null
+            timeend: null,
+            center: [0, 0],
+            zoom: 3
         },
         TimeSlider: {
             enabled: false,
@@ -126,6 +129,13 @@ class StateManager {
                 newUpload.modalOpen = !newUpload.modalOpen
 
                 return { ...state, Upload: newUpload }
+            }
+            case actions.ZOOM_LAYER: {
+                const newMap: Map = { ...state.Map }
+                newMap.center = [action.data.lat, action.data.lon]
+                newMap.zoom = 13
+
+                return { ...state, Map: newMap }
             }
             default:
                 return state

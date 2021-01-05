@@ -22,5 +22,7 @@
         }
     ],
     "time_enabled": 0,
-    "title": "Null Island"
+    "title": "Null Island",
+    "lat": 0,
+    "lon": 0
 }

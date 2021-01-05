@@ -11,7 +11,9 @@ const initDB = (db: Database): void => {
             title TEXT NOT NULL,
             timestart INTEGER,
             timeend INTEGER,
-            time_enabled INTEGER NOT NULL)
+            time_enabled INTEGER NOT NULL,
+            lat REAL NOT NULL,
+            lon REAL NOT NULL)
     `).run()
     
     db.prepare(`
@@ -26,9 +28,9 @@ const initDB = (db: Database): void => {
     
     const layerInsert: Statement = db.prepare(`
         INSERT INTO layers
-        (title, time_enabled, timestart, timeend)
+        (title, time_enabled, timestart, timeend, lat, lon)
         VALUES
-        (@title, @time_enabled, @timestart, @timeend)
+        (@title, @time_enabled, @timestart, @timeend, @lat, @lon)
     `)
     const layerInsertTransaction: Transaction = db.transaction((layers) => {
         layers.map((layer) => {
@@ -36,6 +38,8 @@ const initDB = (db: Database): void => {
                 const timestamps: number[] = layer.points.map((point) => { return point.timestamp })
                 const timestart: number = Math.min(...timestamps)
                 const timeend: number = Math.max(...timestamps)
+                const lat: number = layer.lat
+                const lon: number = layer.lon
                 layerInsert.run({...layer, timestart: timestart, timeend: timeend})
             } else {
                 layerInsert.run({...layer, timestart: null, timeend: null})

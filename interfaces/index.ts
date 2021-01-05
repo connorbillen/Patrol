@@ -25,7 +25,9 @@ export interface Point {
 
 export interface Map {
     timestart: number,
-    timeend: number
+    timeend: number,
+    zoom: number,
+    center: number[]
 }
 
 export interface TimeSlider {

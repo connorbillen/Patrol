@@ -1,11 +1,11 @@
 import { DocumentNode, gql, useQuery } from '@apollo/client'
-import { LatLngExpression } from 'leaflet'
-import React, {} from 'react'
-import { MapContainer, TileLayer, Circle } from 'react-leaflet'
+import { LatLngExpression, Map } from 'leaflet'
+import { MapContainer, TileLayer, Circle, useMap } from 'react-leaflet'
 import { useSelector } from 'react-redux'
 
 import 'leaflet/dist/leaflet.css'
-import { Layers, Map, Point, State } from '../../interfaces'
+import { Layers, Map as MapState, Point, State } from '../../interfaces'
+import ZoomController from './zoomController'
 
 const GET_POINTS: DocumentNode = gql`
     query GetPoints($layerIDs: [ID]!, $timestart: Int, $timeend: Int) {
@@ -19,9 +19,8 @@ const GET_POINTS: DocumentNode = gql`
 `
 
 const MapWrapper = (): JSX.Element => {
-    const center: LatLngExpression = [38.0298136917297, -78.4786164046511]
     const layersState: Layers = useSelector((state: State) => state.Layers)
-    const mapState: Map = useSelector((state: State) => state.Map)
+    const mapState: MapState = useSelector((state: State) => state.Map)
     const enabledLayers = []
     Object.keys(layersState).map((layerGroup: string) => {
         Object.keys(layersState[layerGroup].layers).map((layer: string) => {
@@ -39,11 +38,10 @@ const MapWrapper = (): JSX.Element => {
             }
         })
 
-    if (error) console.log('err: ', error)
-
     return (
         <div style={{ height: '100%' }}>
-            <MapContainer center={ center } zoom={ 13 } style={{ height: '100%' }}>
+            <MapContainer center={ mapState.center as LatLngExpression} zoom={ mapState.zoom } style={{ height: '100%' }}>
+                <ZoomController center={ mapState.center as LatLngExpression } zoom={ mapState.zoom }/>
                 <TileLayer
                     url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
                 />

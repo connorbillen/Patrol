@@ -29,5 +29,7 @@
     "time_enabled": 1,
     "title": "Null Island",
     "time_start": 1427774400,
-    "time_end": 1554004800
+    "time_end": 1554004800,
+    "lat": 0,
+    "lon": 0
 }

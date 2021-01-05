@@ -34,6 +34,8 @@ const GET_LAYERS: DocumentNode = gql`
             id
             title
             time_enabled
+            lat
+            lon
             timestart
             timeend
         }
