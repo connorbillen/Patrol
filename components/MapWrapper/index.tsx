@@ -1,5 +1,5 @@
 import { DocumentNode, gql, useQuery } from '@apollo/client'
-import { LatLngExpression, Map } from 'leaflet'
+import { LatLngExpression } from 'leaflet'
 import { MapContainer, TileLayer, Circle, useMap } from 'react-leaflet'
 import { useSelector } from 'react-redux'
 
@@ -38,10 +38,12 @@ const MapWrapper = (): JSX.Element => {
             }
         })
 
+    
+
     return (
         <div style={{ height: '100%' }}>
             <MapContainer center={ mapState.center as LatLngExpression} zoom={ mapState.zoom } style={{ height: '100%' }}>
-                <ZoomController center={ mapState.center as LatLngExpression } zoom={ mapState.zoom }/>
+                <ZoomController mapCenter={ mapState.center as LatLngExpression } mapZoom={ mapState.zoom } />
                 <TileLayer
                     url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
                 />

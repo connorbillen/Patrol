@@ -1,3 +1,5 @@
+import { LatLngExpression } from "leaflet";
+
 export interface Layer {
     active: boolean,
     title: string,
@@ -27,7 +29,7 @@ export interface Map {
     timestart: number,
     timeend: number,
     zoom: number,
-    center: number[]
+    center: LatLngExpression
 }
 
 export interface TimeSlider {

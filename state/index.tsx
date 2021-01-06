@@ -1,3 +1,4 @@
+import { LatLngExpression } from 'leaflet'
 import { createStore, Store } from 'redux'
 
 import { Upload, Map, State, TimeSlider } from '../interfaces'
@@ -132,7 +133,7 @@ class StateManager {
             }
             case actions.ZOOM_LAYER: {
                 const newMap: Map = { ...state.Map }
-                newMap.center = [action.data.lat, action.data.lon]
+                newMap.center = [action.data.lat, action.data.lon] as LatLngExpression
                 newMap.zoom = 13
 
                 return { ...state, Map: newMap }
