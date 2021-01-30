@@ -101,8 +101,6 @@ const ModalPopup = (): JSX.Element => {
               timestamp: point.timestamp,
               layerID: layer.data.addLayer.id,
             },
-          }).then(() => {
-            toggleModal();
           }).catch((error) => {
             console.log("", error);
           });

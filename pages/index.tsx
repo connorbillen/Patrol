@@ -1,15 +1,14 @@
-// import Head from 'next/head'
-// import styles from '../styles/Home.module.css'
-import { DocumentNode, gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { Dispatch, Fragment } from 'react'
+import { Dispatch, Fragment, useReducer } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
 import { actions } from '../state'
+import { GET_LAYERS } from '../queries'
 
 import ToolDrawer from '../components/ToolDrawer'
 import TimeSlider from '../components/TimeSlider'
@@ -28,32 +27,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const GET_LAYERS: DocumentNode = gql`
-    query GetLayers {
-        layers {
-            id
-            title
-            time_enabled
-            lat
-            lon
-            timestart
-            timeend
-        }
-    }
-`
-
 export default function Home() {
     const classes = useStyles()
     const dispatch: Dispatch<any> = useDispatch()
+
     const handleMenuClick = (): void => {
         dispatch({ type: actions.TOGGLE_TOOLDRAWER })
     }
+
     const handleUploadClick = (): void => {
         dispatch({ type: actions.TOGGLE_UPLOAD_MODAL })
     }
-    const {data, error} = useQuery<any, any>(GET_LAYERS)
 
-    if (error) return (<div>error!</div>)
+    const {data, error, loading} = useQuery<any, any>(GET_LAYERS)
+
+    if (error && !loading) return (<div>Error communicating with backend</div>)
     if (data) {
         data.layers.map((layer) => {
             dispatch({ type: actions.ADD_LAYER, data: layer })
@@ -68,14 +56,14 @@ export default function Home() {
             <div style={{ height: '100%' }}>
                 <AppBar position="absolute">
                     <Toolbar>
-                        <IconButton onClick={() => { handleMenuClick() }} edge="start" className={ classes.menuButton } color="inherit" aria-label="menu">
+                        <IconButton onClick={ handleMenuClick } edge="start" className={ classes.menuButton } color="inherit" aria-label="menu">
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6">
                             Patrol
                         </Typography>
                         <TimeSlider />
-                        <Button onClick={() => { handleUploadClick() }} color="inherit">Upload</Button>
+                        <Button onClick={ handleUploadClick } color="inherit">Upload</Button>
                     </Toolbar>
                 </AppBar>
 

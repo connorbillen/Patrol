@@ -11,7 +11,7 @@ import {
 import { Dispatch } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Layers, Point, State, Upload } from "../../interfaces";
+import { Point, State, Upload } from "../../interfaces";
 import { actions } from "../../state";
 import {
   ADD_LAYER,
@@ -101,8 +101,6 @@ const ModalPopup = (): JSX.Element => {
               timestamp: point.timestamp,
               layerID: layer.data.addLayer.id,
             },
-          }).then(() => {
-            toggleModal();
           }).catch((error) => {
             console.log("", error);
           });

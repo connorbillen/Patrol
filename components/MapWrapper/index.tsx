@@ -1,22 +1,12 @@
-import { DocumentNode, gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { LatLngExpression } from 'leaflet'
 import { MapContainer, TileLayer, Circle, useMap } from 'react-leaflet'
 import { useSelector } from 'react-redux'
 
 import 'leaflet/dist/leaflet.css'
 import { Layers, Map as MapState, Point, State } from '../../interfaces'
+import { GET_POINTS } from '../../queries'
 import ZoomController from './zoomController'
-
-const GET_POINTS: DocumentNode = gql`
-    query GetPoints($layerIDs: [ID]!, $timestart: Int, $timeend: Int) {
-        points(layerIDs: $layerIDs, timestart: $timestart, timeend: $timeend) {
-            id
-            lat
-            lon
-            timestamp
-        }
-    }
-`
 
 const MapWrapper = (): JSX.Element => {
     const layersState: Layers = useSelector((state: State) => state.Layers)
@@ -37,8 +27,6 @@ const MapWrapper = (): JSX.Element => {
                 timeend: mapState.timeend
             }
         })
-
-    
 
     return (
         <div style={{ height: '100%' }}>

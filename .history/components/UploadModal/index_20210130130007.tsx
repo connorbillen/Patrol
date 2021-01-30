@@ -6,23 +6,22 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button
+  Button,
 } from "@material-ui/core";
 import { Dispatch } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Layers, Point, State, Upload } from "../../interfaces";
+import { Point, State, Upload } from "../../interfaces";
 import { actions } from "../../state";
 import {
   ADD_LAYER,
   ADD_POINT,
   GET_LAYERS,
-  GET_POINTS
+  GET_POINTS,
 } from "../../queries";
 
 const ModalPopup = (): JSX.Element => {
   const state: Upload = useSelector((state: State) => state.Upload);
-  const layersState: Layers = useSelector((state: State) => state.Layers)
   const dispatcher: Dispatch<any> = useDispatch();
   const classes = makeStyles({
     root: {
@@ -45,20 +44,12 @@ const ModalPopup = (): JSX.Element => {
     },
   })();
 
-  const enabledLayers = []
-    Object.keys(layersState).map((layerGroup: string) => {
-        Object.keys(layersState[layerGroup].layers).map((layer: string) => {
-            if (layersState[layerGroup].layers[layer].active)
-                enabledLayers.push(layer)
-        })
-    })
-
   const [addLayer] = useMutation<any, any>(ADD_LAYER, {
     refetchQueries: [{ query: GET_LAYERS }],
   });
 
   const [addPoint] = useMutation<any, any>(ADD_POINT, {
-    refetchQueries: [{ query: GET_POINTS, variables: { layerIDs: [] } }],
+    refetchQueries: [{ query: GET_POINTS }],
   });
 
   const getFile = (): Promise<Blob> => {
@@ -101,8 +92,6 @@ const ModalPopup = (): JSX.Element => {
               timestamp: point.timestamp,
               layerID: layer.data.addLayer.id,
             },
-          }).then(() => {
-            toggleModal();
           }).catch((error) => {
             console.log("", error);
           });
