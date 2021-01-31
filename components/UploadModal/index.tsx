@@ -59,7 +59,8 @@ const ModalPopup = (): JSX.Element => {
       paddingBottom: 4,
       paddingLeft: 5,
       paddingRight: 5,
-      fontSize: '0.6rem'
+      fontSize: '0.6rem',
+      borderRadius: '4px 4px 0px 0px'
     },
     selected: {
       textDecoration: 'none',
