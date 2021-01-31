@@ -1,16 +1,19 @@
 import { useQuery } from '@apollo/client'
 import { LatLngExpression } from 'leaflet'
-import { MapContainer, TileLayer, Circle, useMap } from 'react-leaflet'
-import { useSelector } from 'react-redux'
+import { Dispatch } from 'react'
+import { MapContainer, TileLayer, Circle } from 'react-leaflet'
+import { useSelector, useDispatch } from 'react-redux'
 
 import 'leaflet/dist/leaflet.css'
 import { Layers, Map as MapState, Point, State } from '../../interfaces'
 import { GET_POINTS } from '../../queries'
 import ZoomController from './zoomController'
+import { actions } from '../../state'
 
 const MapWrapper = (): JSX.Element => {
     const layersState: Layers = useSelector((state: State) => state.Layers)
     const mapState: MapState = useSelector((state: State) => state.Map)
+    const dispatcher: Dispatch<any> = useDispatch()
     const enabledLayers = []
     Object.keys(layersState).map((layerGroup: string) => {
         Object.keys(layersState[layerGroup].layers).map((layer: string) => {
@@ -25,7 +28,8 @@ const MapWrapper = (): JSX.Element => {
                 layerIDs: enabledLayers,
                 timestart: mapState.timestart,
                 timeend: mapState.timeend
-            }
+            },
+            onCompleted: (): void => { dispatcher({ type: actions.TOGGLE_LOADING, data: {loading: false}}) }
         })
 
     return (

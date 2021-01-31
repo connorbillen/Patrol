@@ -1,4 +1,4 @@
-import { DocumentNode, gql } from "@apollo/client";
+import { DocumentNode, gql } from "@apollo/client"
 
 const ADD_POINT: DocumentNode = gql`
   mutation AddPoint(
@@ -11,7 +11,7 @@ const ADD_POINT: DocumentNode = gql`
       success
     }
   }
-`;
+`
 
 const ADD_LAYER: DocumentNode = gql`
   mutation AddLayer(
@@ -33,7 +33,7 @@ const ADD_LAYER: DocumentNode = gql`
       id
     }
   }
-`;
+`
 
 const GET_POINTS: DocumentNode = gql`
   query GetPoints($layerIDs: [ID]!, $timestart: Int, $timeend: Int) {
@@ -44,7 +44,7 @@ const GET_POINTS: DocumentNode = gql`
       timestamp
     }
   }
-`;
+`
 
 const GET_LAYERS: DocumentNode = gql`
   query GetLayers {
@@ -58,6 +58,6 @@ const GET_LAYERS: DocumentNode = gql`
       timeend
     }
   }
-`;
+`
 
-export { ADD_LAYER, ADD_POINT, GET_LAYERS, GET_POINTS };
+export { ADD_LAYER, ADD_POINT, GET_LAYERS, GET_POINTS }

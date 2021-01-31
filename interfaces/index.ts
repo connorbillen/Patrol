@@ -1,4 +1,4 @@
-import { LatLngExpression } from "leaflet";
+import { LatLngExpression } from "leaflet"
 
 export interface Layer {
     active: boolean,
@@ -45,6 +45,9 @@ export interface Upload {
 }
 
 export interface State {
+    App: {
+        loading: boolean
+    }
     ToolDrawer: {
         open: boolean
     },

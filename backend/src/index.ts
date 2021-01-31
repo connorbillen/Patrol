@@ -14,9 +14,9 @@ const server: ApolloServer = new ApolloServer({
     dataSources: () => ({
         layerAPI: new LayerAPI(db)
     })
-});
+})
 
 server.listen()
 .then((): void => {
-    console.log('🚀 Server running on localhost:4000');
+    console.log('🚀 Server running on localhost:4000')
 })

@@ -46,6 +46,7 @@ const TimeSlider = (): JSX.Element => {
     const [mapUpdater, setMapUpdater] = useState(setTimeout(() => {}, 0))
 
     const newSliderValue = (_event, range): void => {
+        dispatch({ type: actions.TOGGLE_LOADING, data: {loading: true}})
         dispatch({ type: actions.UPDATE_SLIDER_RANGE, data: range })
         clearTimeout(mapUpdater)
         setMapUpdater(setTimeout(() => { dispatch({ type: actions.UPDATE_MAP_RANGE })}, 1000))

@@ -4,6 +4,7 @@ import { createStore, Store } from 'redux'
 import { Upload, Map, State, TimeSlider } from '../interfaces'
 
 export enum actions {
+    'TOGGLE_LOADING' = 'TOGGLE_LOADING',
     'TOGGLE_TOOLDRAWER' = 'TOGGLE_TOOLDRAWER',
     'ADD_LAYER' = 'ADD_LAYER',
     'EXPAND_LAYER_CONTAINER' = 'EXPAND_LAYER_CONTAINER',
@@ -18,6 +19,9 @@ export enum actions {
 class StateManager {
     private store: Store
     private initState: State = {
+        App: {
+            loading: false
+        },
         ToolDrawer: {
             open: false
         },
@@ -59,6 +63,9 @@ class StateManager {
 
     private _rootReducer = (state: State = this.initState, action: {type: string, data?: any}): State => {
         switch(action.type) {
+            case actions.TOGGLE_LOADING: {
+                return { ...state, App: {loading: action.data ? action.data.loading : !state.App.loading}}
+            }
             case actions.TOGGLE_TOOLDRAWER: {
                 return { ...state, ToolDrawer: {open: !state.ToolDrawer.open}}
             }
@@ -144,7 +151,7 @@ class StateManager {
     }
 
     public getStateInstance = (): Store => {
-        return this.store;
+        return this.store
     }
 }
 

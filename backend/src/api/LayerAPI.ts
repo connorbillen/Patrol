@@ -69,4 +69,4 @@ class LayerAPI extends DataSource<any> {
     }
 }
 
-export default LayerAPI;
+export default LayerAPI

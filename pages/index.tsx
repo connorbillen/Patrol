@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { Dispatch, Fragment, useReducer } from 'react'
+import { Dispatch, Fragment } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from '@material-ui/core'
@@ -13,10 +13,11 @@ import { GET_LAYERS } from '../queries'
 import ToolDrawer from '../components/ToolDrawer'
 import TimeSlider from '../components/TimeSlider'
 import UploadModal from '../components/UploadModal'
+import LoadingOverlay from '../components/LoadingOverlay'
 const MapWrapper = dynamic(
   () => import('../components/MapWrapper'),
   { ssr: false }
-);
+)
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   }
-}));
+}))
 
 export default function Home() {
     const classes = useStyles()
@@ -66,6 +67,8 @@ export default function Home() {
                         <Button onClick={ handleUploadClick } color="inherit">Upload</Button>
                     </Toolbar>
                 </AppBar>
+                
+                <LoadingOverlay />
 
                 <ToolDrawer />
 

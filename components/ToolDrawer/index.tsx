@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
     nested: {
         paddingLeft: theme.spacing(4),
     },
-}));
+}))
 
 const ToolDrawer = (): JSX.Element => {
-    const classes = useStyles();
+    const classes = useStyles()
     const state: State = useSelector((state: State) => state)
     const dispatch = useDispatch()
 
@@ -31,10 +31,12 @@ const ToolDrawer = (): JSX.Element => {
     }
 
     const toggleLayer = (layer: Layer & {layerGroup: string}) => {
+        dispatch({ type: actions.TOGGLE_LOADING, data: {loading: true}})
         dispatch({ type: actions.TOGGLE_LAYER, data: layer })
     }
 
     const toggleLayerContainer = (layerGroup: string) => {
+        dispatch({ type: actions.TOGGLE_LOADING, data: {loading: true}})
         dispatch({ type: actions.TOGGLE_LAYER_CONTAINER, data: {id: layerGroup} })
     }
 

@@ -1,5 +1,5 @@
-import { useMutation } from "@apollo/client";
-import { makeStyles } from "@material-ui/core";
+import { useMutation } from "@apollo/client"
+import { makeStyles } from "@material-ui/core"
 import {
   Modal,
   Card,
@@ -7,24 +7,24 @@ import {
   Typography,
   CardActions,
   Button
-} from "@material-ui/core";
-import { Dispatch, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+} from "@material-ui/core"
+import { Dispatch, useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
 
-import { Layers, Point, State, Upload } from "../../interfaces";
-import { actions } from "../../state";
+import { Layers, Point, State, Upload } from "../../interfaces"
+import { actions } from "../../state"
 import {
   ADD_LAYER,
   ADD_POINT,
   GET_LAYERS,
   GET_POINTS
-} from "../../queries";
+} from "../../queries"
 
 const ModalPopup = (): JSX.Element => {
-  const state: Upload = useSelector((state: State) => state.Upload);
+  const state: Upload = useSelector((state: State) => state.Upload)
   const layersState: Layers = useSelector((state: State) => state.Layers)
-  const dispatcher: Dispatch<any> = useDispatch();
-  const [showHistorical, setShowHistorical] = useState(true);
+  const dispatcher: Dispatch<any> = useDispatch()
+  const [showHistorical, setShowHistorical] = useState(true)
   
   const classes = makeStyles({
     root: {
@@ -66,7 +66,7 @@ const ModalPopup = (): JSX.Element => {
       textDecoration: 'none',
       backgroundColor: 'rgba(0, 0, 0, 0.06)'
     }
-  })();
+  })()
 
   const enabledLayers = []
     Object.keys(layersState).map((layerGroup: string) => {
@@ -78,33 +78,33 @@ const ModalPopup = (): JSX.Element => {
 
   const [addLayer] = useMutation<any, any>(ADD_LAYER, {
     refetchQueries: [{ query: GET_LAYERS }],
-  });
+  })
 
   const [addPoint] = useMutation<any, any>(ADD_POINT, {
     refetchQueries: [{ query: GET_POINTS, variables: { layerIDs: [] } }],
-  });
+  })
 
   const getFile = (): Promise<Blob> => {
     return new Promise((resolve) => {
-      const input = document.createElement("input");
-      input.type = "file";
+      const input = document.createElement("input")
+      input.type = "file"
 
       input.onchange = (_) => {
-        const files = Array.from(input.files);
-        resolve(files[0]);
-      };
+        const files = Array.from(input.files)
+        resolve(files[0])
+      }
 
-      input.click();
-    });
-  };
+      input.click()
+    })
+  }
 
   const validateJson = (_json: any): boolean => {
-    return true;
-  };
+    return true
+  }
 
   const toggleModal = (): void => {
-    dispatcher({ type: actions.TOGGLE_UPLOAD_MODAL });
-  };
+    dispatcher({ type: actions.TOGGLE_UPLOAD_MODAL })
+  }
 
   const processContent = async (content: any): Promise<void> => {
     const layer = await addLayer({
@@ -116,7 +116,7 @@ const ModalPopup = (): JSX.Element => {
         time_start: content.time_start,
         time_end: content.time_end,
       },
-    });
+    })
 
     if (!layer.errors) {
       await Promise.all(
@@ -129,28 +129,28 @@ const ModalPopup = (): JSX.Element => {
               layerID: layer.data.addLayer.id,
             },
           }).then(() => {
-            toggleModal();
+            toggleModal()
           }).catch((error) => {
-            console.log("", error);
-          });
+            console.log("", error)
+          })
         })
-      );
+      )
     }
-  };
+  }
 
   const uploadFile = async (): Promise<Blob> => {
-    const file: Blob = await getFile();
-    const reader: FileReader = new FileReader();
-    reader.readAsText(file, "UTF-8");
+    const file: Blob = await getFile()
+    const reader: FileReader = new FileReader()
+    reader.readAsText(file, "UTF-8")
     reader.onload = (readerEvent: ProgressEvent<FileReader>) => {
-      const content: string = readerEvent.target.result as string;
-      const parsedContent: any = JSON.parse(content);
+      const content: string = readerEvent.target.result as string
+      const parsedContent: any = JSON.parse(content)
       if (validateJson(parsedContent)) {
-        processContent(parsedContent);
+        processContent(parsedContent)
       }
-    };
-    return file;
-  };
+    }
+    return file
+  }
 
   const body = (
     <Card className={classes.root}>
@@ -170,10 +170,10 @@ const ModalPopup = (): JSX.Element => {
           in the Github repository.
         </Typography>
         <div>
-          <Button className={ `${ classes.extraSmall } ${ showHistorical ? classes.selected : null }` } onClick={(): void => { setShowHistorical(true); }}>
+          <Button className={ `${ classes.extraSmall } ${ showHistorical ? classes.selected : null }` } onClick={(): void => { setShowHistorical(true) }}>
             Static Data
           </Button>
-          <Button className={ `${ classes.extraSmall } ${ !showHistorical ? classes.selected : null }` } onClick={(): void => { setShowHistorical(false); }}>
+          <Button className={ `${ classes.extraSmall } ${ !showHistorical ? classes.selected : null }` } onClick={(): void => { setShowHistorical(false) }}>
             Time-based Data
           </Button>
         </div>
@@ -213,21 +213,21 @@ const ModalPopup = (): JSX.Element => {
         </Button>
       </CardActions>
     </Card>
-  );
+  )
 
   return (
     <Modal
       disablePortal={true}
       open={state.modalOpen}
       onClose={() => {
-        toggleModal();
+        toggleModal()
       }}
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
     >
       {body}
     </Modal>
-  );
-};
+  )
+}
 
-export default ModalPopup;
+export default ModalPopup

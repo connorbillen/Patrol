@@ -14,7 +14,7 @@ const convertDataToJSON = (): Object => {
     parseString(xml, (_err: Error, result: { kml: { Document: Array<any> }}): void => {
         result.kml.Document[0].Folder[0].Placemark.map((placemark) => {
             const latlon: Array<string> = placemark.Point[0].coordinates[0].split(',')
-            jsonData.points.push({ lon: parseFloat(latlon[0]), lat: parseFloat(latlon[1]), timestamp: null });
+            jsonData.points.push({ lon: parseFloat(latlon[0]), lat: parseFloat(latlon[1]), timestamp: null })
         })
     })
 
