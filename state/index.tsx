@@ -1,7 +1,8 @@
+import { TurnedIn } from '@material-ui/icons'
 import { LatLngExpression } from 'leaflet'
 import { createStore, Store } from 'redux'
 
-import { Upload, Map, State, TimeSlider } from '../interfaces'
+import { Upload, Map, State, TimeSlider, Layers, Layer } from '../interfaces'
 
 export enum actions {
     'TOGGLE_LOADING' = 'TOGGLE_LOADING',
@@ -94,31 +95,48 @@ class StateManager {
                 newLayers[action.data.layerGroup].layers[action.data.id].active =
                     !newLayers[action.data.layerGroup].layers[action.data.id].active
                 newLayers[action.data.layerGroup].active =
-                    Object.keys(newLayers[action.data.layerGroup].layers).some((layer) => {
+                    Object.keys(newLayers[action.data.layerGroup].layers).some((layer: string) => {
                         return newLayers[action.data.layerGroup].layers[layer].active
                     })
 
-                if (newLayers[action.data.layerGroup].layers[action.data.id].time_enabled) {
-                    newTimeSlider.enabled = true
-                    newTimeSlider.timestart = newTimeSlider.timestart ? Math.min(newTimeSlider.timestart, action.data.timestart) : action.data.timestart
-                    newTimeSlider.timeend = newTimeSlider.timeend ? Math.max(newTimeSlider.timeend, action.data.timeend) : action.data.timeend
-                    if (!newTimeSlider.currentStart && !newTimeSlider.currentEnd) {
-                        newTimeSlider.currentStart = newTimeSlider.timestart
-                        newTimeSlider.currentEnd = newTimeSlider.timeend
-                    }
+                newTimeSlider.enabled = this._timeLayerEnabled(newLayers)
+                if (!newTimeSlider.enabled) {
+                    newTimeSlider.timestart = null
+                    newTimeSlider.timeend = null
+                    newTimeSlider.currentStart = null
+                    newTimeSlider.currentEnd = null
                 } else {
-                    // remove layer
+                    const newTimeRange = this._calculateNewTimeRange(newLayers, newTimeSlider)
+                    newTimeSlider.timestart = newTimeRange[0][0]
+                    newTimeSlider.timeend = newTimeRange[0][1]
+                    newTimeSlider.currentStart = newTimeRange[1][0]
+                    newTimeSlider.currentEnd = newTimeRange[1][1]
                 }
-                
+
                 return { ...state, Layers: newLayers, TimeSlider: newTimeSlider }
             }
             case actions.TOGGLE_LAYER_CONTAINER: {
-                const toggledLayerContainer = { ...state.Layers }
+                const toggledLayerContainer: Layers = { ...state.Layers }
+                const newTimeSlider: TimeSlider = { ...state.TimeSlider }
+                
                 Object.keys(toggledLayerContainer[action.data.id].layers).map((layer) => {
                     toggledLayerContainer[action.data.id].layers[layer].active = !toggledLayerContainer[action.data.id].active
                 })
                 toggledLayerContainer[action.data.id].active = !toggledLayerContainer[action.data.id].active
-                return { ...state, Layers: toggledLayerContainer }
+                newTimeSlider.enabled = this._timeLayerEnabled(toggledLayerContainer)
+                if (!newTimeSlider.enabled) {
+                    newTimeSlider.timestart = null
+                    newTimeSlider.timeend = null
+                    newTimeSlider.currentStart = null
+                    newTimeSlider.currentEnd = null
+                } else {
+                    const [newTimeRange, newCurrentTimeRange] = this._calculateNewTimeRange(toggledLayerContainer, newTimeSlider)
+                    newTimeSlider.timestart = newTimeRange[0]
+                    newTimeSlider.timeend = newTimeRange[1]
+                    newTimeSlider.currentStart = newCurrentTimeRange[0]
+                    newTimeSlider.currentEnd = newCurrentTimeRange[1]
+                }
+                return { ...state, Layers: toggledLayerContainer, TimeSlider: newTimeSlider }
             }
             case actions.UPDATE_SLIDER_RANGE: {
                 const newTimeSlider: TimeSlider = { ...state.TimeSlider }
@@ -128,8 +146,8 @@ class StateManager {
             }
             case actions.UPDATE_MAP_RANGE: {
                 const newMap: Map = { ...state.Map }
-                newMap.timestart = state.TimeSlider.currentStart
-                newMap.timeend = state.TimeSlider.currentEnd
+                newMap.timestart = state.TimeSlider.currentStart ? state.TimeSlider.currentStart : state.TimeSlider.timestart
+                newMap.timeend = state.TimeSlider.currentEnd ? state.TimeSlider.currentEnd : state.TimeSlider.timeend
                 return { ...state, Map: newMap }
             }
             case actions.TOGGLE_UPLOAD_MODAL: {
@@ -148,6 +166,41 @@ class StateManager {
             default:
                 return state
         }
+    }
+
+    private _timeLayerEnabled = (layers: Layers): boolean => {
+        return Object.keys(layers).some((layerContainerId: string): boolean => {
+            return Object.keys(layers[layerContainerId].layers).some((layerId: string): boolean => {
+                const layer: Layer = layers[layerContainerId].layers[layerId]
+                return layer.time_enabled && layer.active ? true : false
+            })
+        })
+    }
+
+    private _calculateNewTimeRange = (layers: Layers, timeSlider: TimeSlider): [[number, number], [number, number]] => {
+        const startTimes: Array<number> = []
+        const endTimes: Array<number> = []
+        Object.keys(layers).map((layerContainerId: string) => {
+            return Object.keys(layers[layerContainerId].layers).map((layerId: string) => {
+                const layer: Layer = layers[layerContainerId].layers[layerId]
+                if (layer.time_enabled && layer.active) {
+                    startTimes.push(layer.timestart)
+                    endTimes.push(layer.timeend)
+                }
+            })
+        })
+
+        const minTime: number = Math.min(...startTimes)
+        const maxTime: number = Math.max(...endTimes)
+
+        const currentStart: number = timeSlider.currentStart ? 
+            Math.max(timeSlider.currentStart, timeSlider.timestart) : 
+            minTime
+        const currentEnd: number = timeSlider.currentEnd ?
+            Math.min(timeSlider.currentEnd, timeSlider.timeend) :
+            maxTime
+
+        return [[currentStart, currentEnd], [minTime, maxTime]]
     }
 
     public getStateInstance = (): Store => {

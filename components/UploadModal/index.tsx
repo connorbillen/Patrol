@@ -23,7 +23,7 @@ import {
 const ModalPopup = (): JSX.Element => {
   const state: Upload = useSelector((state: State) => state.Upload)
   const layersState: Layers = useSelector((state: State) => state.Layers)
-  const dispatcher: Dispatch<any> = useDispatch()
+  const dispatch: Dispatch<any> = useDispatch()
   const [showHistorical, setShowHistorical] = useState(true)
   
   const classes = makeStyles({
@@ -77,11 +77,15 @@ const ModalPopup = (): JSX.Element => {
     })
 
   const [addLayer] = useMutation<any, any>(ADD_LAYER, {
-    refetchQueries: [{ query: GET_LAYERS }],
+    refetchQueries: [{ query: GET_LAYERS,  }],
+    awaitRefetchQueries: true,
+    onCompleted: (): void => { dispatch({ type: actions.TOGGLE_LOADING, data: {loading: false }})}
   })
 
   const [addPoint] = useMutation<any, any>(ADD_POINT, {
     refetchQueries: [{ query: GET_POINTS, variables: { layerIDs: [] } }],
+    awaitRefetchQueries: true,
+    onCompleted: (): void => { dispatch({ type: actions.TOGGLE_LOADING, data: {loading: false }})}
   })
 
   const getFile = (): Promise<Blob> => {
@@ -103,7 +107,7 @@ const ModalPopup = (): JSX.Element => {
   }
 
   const toggleModal = (): void => {
-    dispatcher({ type: actions.TOGGLE_UPLOAD_MODAL })
+    dispatch({ type: actions.TOGGLE_UPLOAD_MODAL })
   }
 
   const processContent = async (content: any): Promise<void> => {

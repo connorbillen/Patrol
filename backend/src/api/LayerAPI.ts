@@ -22,17 +22,31 @@ class LayerAPI extends DataSource<any> {
 
     async getPoints(layerIDs: Array<string>, timestart?: number, timeend?: number): Promise<Array<Point>> {
         if (timestart || timeend) {
-            return this.db.prepare(`
+            const result = this.db.prepare(`
                 SELECT * FROM points 
                 WHERE layer_id IN (${ layerIDs })
                 AND timestamp BETWEEN ${ timestart } AND ${ timeend }
                 OR timestamp IS NULL
             `).all()
+
+            console.log(`
+                layerIds: ${ layerIDs }
+                timestart: ${ timestart }
+                timeend: ${ timeend }
+            `)
+            return result
         } else {
-            return this.db.prepare(`
+            const result = this.db.prepare(`
                 SELECT * FROM points 
                 WHERE layer_id IN (${ layerIDs })
             `).all()
+
+            console.log(`
+                layerIds: ${ layerIDs }
+                timestart: ${ timestart }
+                timeend: ${ timeend }
+            `)
+            return result
         }
     }
 

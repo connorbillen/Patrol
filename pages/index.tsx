@@ -40,7 +40,9 @@ export default function Home() {
         dispatch({ type: actions.TOGGLE_UPLOAD_MODAL })
     }
 
-    const {data, error, loading} = useQuery<any, any>(GET_LAYERS)
+    const {data, error, loading} = useQuery<any, any>(GET_LAYERS, {
+        onCompleted: (): void => { dispatch({ type: actions.TOGGLE_LOADING, data: {loading: false}})} 
+    })
 
     if (error && !loading) return (<div>Error communicating with backend</div>)
     if (data) {

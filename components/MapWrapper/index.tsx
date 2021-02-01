@@ -21,6 +21,7 @@ const MapWrapper = (): JSX.Element => {
                 enabledLayers.push(layer)
         })
     })
+    console.log('', enabledLayers)
 
     const {data, error} =
         useQuery<any, any>(GET_POINTS, {
