@@ -69,22 +69,18 @@ const ModalPopup = (): JSX.Element => {
   })()
 
   const enabledLayers = []
-    Object.keys(layersState).map((layerGroup: string) => {
-        Object.keys(layersState[layerGroup].layers).map((layer: string) => {
-            if (layersState[layerGroup].layers[layer].active)
-                enabledLayers.push(layer)
-        })
-    })
+  Object.keys(layersState).map((layerGroup: string) => {
+      Object.keys(layersState[layerGroup].layers).map((layer: string) => {
+          if (layersState[layerGroup].layers[layer].active)
+              enabledLayers.push(layer)
+      })
+  })
 
   const [addLayer] = useMutation<any, any>(ADD_LAYER, {
-    refetchQueries: [{ query: GET_LAYERS,  }],
-    awaitRefetchQueries: true,
-    onCompleted: (): void => { dispatch({ type: actions.TOGGLE_LOADING, data: {loading: false }})}
+    refetchQueries: [{ query: GET_LAYERS }]
   })
 
   const [addPoint] = useMutation<any, any>(ADD_POINT, {
-    refetchQueries: [{ query: GET_POINTS, variables: { layerIDs: [] } }],
-    awaitRefetchQueries: true,
     onCompleted: (): void => { dispatch({ type: actions.TOGGLE_LOADING, data: {loading: false }})}
   })
 
@@ -135,7 +131,7 @@ const ModalPopup = (): JSX.Element => {
           }).then(() => {
             toggleModal()
           }).catch((error) => {
-            console.log("", error)
+            console.log('', error)
           })
         })
       )

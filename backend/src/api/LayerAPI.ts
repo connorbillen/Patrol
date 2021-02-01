@@ -25,27 +25,16 @@ class LayerAPI extends DataSource<any> {
             const result = this.db.prepare(`
                 SELECT * FROM points 
                 WHERE layer_id IN (${ layerIDs })
-                AND timestamp BETWEEN ${ timestart } AND ${ timeend }
-                OR timestamp IS NULL
+                AND (timestamp BETWEEN ${ timestart } AND ${ timeend }
+                OR timestamp IS NULL)
             `).all()
-
-            console.log(`
-                layerIds: ${ layerIDs }
-                timestart: ${ timestart }
-                timeend: ${ timeend }
-            `)
             return result
-        } else {
+        } else if (layerIDs.length) {
             const result = this.db.prepare(`
                 SELECT * FROM points 
                 WHERE layer_id IN (${ layerIDs })
             `).all()
 
-            console.log(`
-                layerIds: ${ layerIDs }
-                timestart: ${ timestart }
-                timeend: ${ timeend }
-            `)
             return result
         }
     }

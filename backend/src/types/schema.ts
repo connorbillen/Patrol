@@ -23,7 +23,7 @@ const typeDefs: DocumentNode = gql`
 
     type Query {
         layers: [Layer]!
-        points(layerIDs: [ID]!, timestart: Int, timeend: Int): [Point]!
+        points(layerIDs: [ID]!, timestart: Int, timeend: Int): [Point]
     }
 
     type Mutation {
