@@ -106,11 +106,11 @@ class StateManager {
                     newTimeSlider.currentStart = null
                     newTimeSlider.currentEnd = null
                 } else {
-                    const newTimeRange = this._calculateNewTimeRange(newLayers, newTimeSlider)
-                    newTimeSlider.timestart = newTimeRange[0][0]
-                    newTimeSlider.timeend = newTimeRange[0][1]
-                    newTimeSlider.currentStart = newTimeRange[1][0]
-                    newTimeSlider.currentEnd = newTimeRange[1][1]
+                    const [newCurrentTimeRange, newTimeRange] = this._calculateNewTimeRange(newLayers, newTimeSlider)
+                    newTimeSlider.timestart = newTimeRange[0]
+                    newTimeSlider.timeend = newTimeRange[1]
+                    newTimeSlider.currentStart = newCurrentTimeRange[0]
+                    newTimeSlider.currentEnd = newCurrentTimeRange[1]
                 }
 
                 return { ...state, Layers: newLayers, TimeSlider: newTimeSlider }
@@ -130,7 +130,7 @@ class StateManager {
                     newTimeSlider.currentStart = null
                     newTimeSlider.currentEnd = null
                 } else {
-                    const [newTimeRange, newCurrentTimeRange] = this._calculateNewTimeRange(toggledLayerContainer, newTimeSlider)
+                    const [newCurrentTimeRange, newTimeRange] = this._calculateNewTimeRange(toggledLayerContainer, newTimeSlider)
                     newTimeSlider.timestart = newTimeRange[0]
                     newTimeSlider.timeend = newTimeRange[1]
                     newTimeSlider.currentStart = newCurrentTimeRange[0]
@@ -194,10 +194,10 @@ class StateManager {
         const maxTime: number = Math.max(...endTimes)
 
         const currentStart: number = timeSlider.currentStart ? 
-            Math.max(timeSlider.currentStart, timeSlider.timestart) : 
+            Math.max(timeSlider.currentStart, minTime) : 
             minTime
         const currentEnd: number = timeSlider.currentEnd ?
-            Math.min(timeSlider.currentEnd, timeSlider.timeend) :
+            Math.min(timeSlider.currentEnd, maxTime) :
             maxTime
 
         return [[currentStart, currentEnd], [minTime, maxTime]]
