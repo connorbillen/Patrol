@@ -38,3 +38,4 @@ yarn-error.log*
 # custom
 DB.db
 DB.db-journal
+.expo
